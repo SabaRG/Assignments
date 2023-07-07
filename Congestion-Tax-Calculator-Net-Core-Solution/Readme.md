@@ -7,12 +7,15 @@ I know that I should check the tests more and make more documents and tests, but
 
 Please consider the following hints:
 1. I review codes and insert many TODO comments in the code that should be checked by the team ordered by their sequence.
-![Tasks List](Tasks List.png "Tasks List")
+![Tasks List](https://github.com/SabaRG/Assignments/blob/main/Congestion-Tax-Calculator-Net-Core-Solution/Tasks%20List.png "Tasks List")
 2. I document many classes and methods using ChatGPT and made a MD file as readme.md and an HTML version (and XML version) for other developers.
+![Help Document](./Readme-HelpDocument.md "Help Document")
 3. I was careful to use spell checker in my VS2022 to avoid misspells but there may be some grammatical errors in my document that I have to find a plug-in for this purpose too (like Ginger or Grammarly that can be used in windows and Word).
 4. Unfortunately, there is no class designer for .net core project built-in VS2022, so we can use other tools like SparxEA to more visualize the structures and designs for sharing. 
 5. I save code metrics as image and CSV file to be used without VS IDE and check the codes quality but I think the codes can be improved more to have better metrics.
+![Code Metrics](./Code%20Metrics.png "Code Metrics")
 6. I build many unit and integration tests for many important classes but they need more review. Besides I use all famous test framework including MSTest, NUnit and xUnit for a class, but I just have time to make more test for xUnit project. The result of code coverage and bugs can be see in `Code Coverage` image file. I will try to improve the code, correct the bugs and send new version as soon as I can.
+![Code Coverage](./Code%20Coverage.png "Code Coverage")
 7. I implement Bonus scenario and can't check it now completely, but I will try to test it too. There are two example input file for CSV and MD files (like the specification format) to test this scenario in Debug folder of .netcore3.1.
 8. Maybe it be better to have different projects for presentation, application and other layers but as my junior college don't make any structure for the project and my manager don't say how, where, why, what, are the requirements, I put all files (even sample input files) in the same project.
 
