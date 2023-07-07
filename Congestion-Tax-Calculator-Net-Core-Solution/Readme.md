@@ -7,9 +7,9 @@ I know that I should check the tests more and make more documents and tests, but
 
 Please consider the following hints:
 1. I review codes and insert many TODO comments in the code that should be checked by the team ordered by their sequence.
-![Tasks List](https://github.com/SabaRG/Assignments/blob/main/Congestion-Tax-Calculator-Net-Core-Solution/Tasks%20List.png "Tasks List")
+![Tasks List](./Tasks%20List.png "Tasks List")
 2. I document many classes and methods using ChatGPT and made a MD file as readme.md and an HTML version (and XML version) for other developers.
-![Help Document](./Readme-HelpDocument.md "Help Document")
+[Help Document](./Readme-HelpDocument.md)
 3. I was careful to use spell checker in my VS2022 to avoid misspells but there may be some grammatical errors in my document that I have to find a plug-in for this purpose too (like Ginger or Grammarly that can be used in windows and Word).
 4. Unfortunately, there is no class designer for .net core project built-in VS2022, so we can use other tools like SparxEA to more visualize the structures and designs for sharing. 
 5. I save code metrics as image and CSV file to be used without VS IDE and check the codes quality but I think the codes can be improved more to have better metrics.
