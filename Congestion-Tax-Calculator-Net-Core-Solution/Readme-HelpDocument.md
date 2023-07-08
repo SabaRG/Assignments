@@ -18,9 +18,10 @@
 - [DateTollFeeStrategyV2](#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2')
   - [GetDateTollFee(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-GetDateTollFee-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.GetDateTollFee(System.DateTime)')
   - [IsTollFreeDate(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-IsTollFreeDate-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.IsTollFreeDate(System.DateTime)')
-- [DateTollFeeStrategyV2Old](#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2Old')
-  - [GetDateTollFee(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old-GetDateTollFee-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2Old.GetDateTollFee(System.DateTime)')
-  - [IsTollFreeDate(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old-IsTollFreeDate-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2Old.IsTollFreeDate(System.DateTime)')
+- [DateTollFeeStrategyV3](#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3')
+  - [#ctor(taxRuleRepository,city)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.#ctor(congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository,System.String)')
+  - [GetDateTollFee(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.GetDateTollFee(System.DateTime)')
+  - [IsTollFreeDate(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.IsTollFreeDate(System.DateTime)')
 - [Extensions](#T-congestion-calculator-v2-Domain-ValueObjects-Extensions 'congestion.calculator.v2.Domain.ValueObjects.Extensions')
 - [ICongestionTaxCalculatorStrategy](#T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy 'congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy')
   - [GetTax(vehicle,dates)](#M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime[]- 'congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy.GetTax(congestion.calculator.IVehicle,System.DateTime[])')
@@ -40,7 +41,7 @@
   - [#ctor(hour,minute,second,millisecond)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int32,System-Int32,System-Int32,System-Int32- 'congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)')
   - [#ctor(dt)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-DateTime- 'congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.DateTime)')
   - [#ctor(timeString)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-String- 'congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.String)')
-  - [DateTime](#P-congestion-calculator-v2-Domain-ValueObjects-Time-DateTime 'congestion.calculator.v2.Domain.ValueObjects.Time.DateTime')
+  - [AsDateTime](#P-congestion-calculator-v2-Domain-ValueObjects-Time-AsDateTime 'congestion.calculator.v2.Domain.ValueObjects.Time.AsDateTime')
   - [CompareTo(other)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-congestion-calculator-v2-Domain-ValueObjects-Time- 'congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(congestion.calculator.v2.Domain.ValueObjects.Time)')
   - [CompareTo(other)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-System-DateTime- 'congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(System.DateTime)')
   - [Equals(obj)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-Equals-System-Object- 'congestion.calculator.v2.Domain.ValueObjects.Time.Equals(System.Object)')
@@ -285,35 +286,45 @@ true if the given date is toll free, otherwise false
 | ---- | ---- | ----------- |
 | date | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | the input date |
 
-<a name='T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old'></a>
-## DateTollFeeStrategyV2Old `type`
+<a name='T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3'></a>
+## DateTollFeeStrategyV3 `type`
 
 ##### Namespace
 
 congestion.calculator.v2.Application.Services
 
-##### Summary
-
-The current date toll fee calculation strategy is implemented in this class
-
-<a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old-GetDateTollFee-System-DateTime-'></a>
-### GetDateTollFee(date) `method`
+<a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String-'></a>
+### #ctor(taxRuleRepository,city) `constructor`
 
 ##### Summary
 
-This method check a date and calculate its toll fee
-
-##### Returns
-
-the calculated toll fee value for the input date between 0 to int.MaxValue
+Constructor for DateTollFeeStrategyV3 class
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| date | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | the input date for toll fee calculation |
+| taxRuleRepository | [congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository](#T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository 'congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository') | An object of ITaxRuleRepository used to retrieve tax rules |
+| city | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The city used to calculate toll fee |
 
-<a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2Old-IsTollFreeDate-System-DateTime-'></a>
+<a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime-'></a>
+### GetDateTollFee(date) `method`
+
+##### Summary
+
+Calculates the toll fee based on the input date
+
+##### Returns
+
+The calculated toll fee for the input date
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| date | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The date used to calculate the toll fee |
+
+<a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime-'></a>
 ### IsTollFreeDate(date) `method`
 
 ##### Summary
@@ -342,6 +353,8 @@ congestion.calculator.v2.Domain.ValueObjects
 ##### Summary
 
 A dummy try to add ToTime method to static Convert class that was impossible now
+even though it let other classes to convert strings to Time like:
+(null as DateTime).ToTime("12:24")
 
 <a name='T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy'></a>
 ## ICongestionTaxCalculatorStrategy `type`
@@ -591,8 +604,8 @@ Initializes a new instance of the Time class using a time string.
 | ---- | ---- | ----------- |
 | timeString | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A string that represents a time in the format "hh:mm:ss.fff". |
 
-<a name='P-congestion-calculator-v2-Domain-ValueObjects-Time-DateTime'></a>
-### DateTime `property`
+<a name='P-congestion-calculator-v2-Domain-ValueObjects-Time-AsDateTime'></a>
+### AsDateTime `property`
 
 ##### Summary
 

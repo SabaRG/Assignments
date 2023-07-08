@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Congestion-Tax-Calculator-Net-Core</name>
+    </assembly>
+    <members>
+        <member name="M:congestion.calculator.CongestionTaxCalculator.GetTax(congestion.calculator.IVehicle,System.DateTime[])">
+             Calculate the total toll fee for one day
+            
+             @param vehicle - the vehicle
+             @param dates   - date and time of all passes on one day
+             @return - the total congestion tax for that day
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV1">
+            <summary>
+            This is the main class for CongestionTaxCalculator of a vehicle in several days
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV1.GetTax(congestion.calculator.IVehicle,System.DateTime[])">
+            <summary>
+            
+            </summary>
+            <param name="vehicle"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV2">
+            <summary>
+            This is the main class for CongestionTaxCalculator of a vehicle in several days
+            This new version added `The single charge rule`
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV2.GetTax(congestion.calculator.IVehicle,System.DateTime[])">
+            <summary>
+            This method calculate total tax for a vehicle in several days and overall rules for different days
+            like 'The single charge rule' is implemented in this code. As this rule is a little general and vague,
+            in this version of `CongestionTaxCalculatorV2` in the first step all the date_times of every day based on
+            their [year,month,day] value will be grouped and then dates of a day will be ordered.
+            For every day, every date_time will be checked with all next ordered date_times and those which have less span 
+            than 60 minutes will be checked for maximum toll fee and the final value for this span will be the maximum value.
+            Then all of date_times in this span will be skipped, and this behavior will be repeated for next date_times after 
+            the span. The span maybe have just 1 date_time if there is no other date_time in its next 60 minutes, or maybe its 
+            length be 2...N, and then this N dates will be skipped for the next round.
+            Then, the final maximum toll fee for all 60 minutes spans will be summed and the minimum of total sum of this day 
+            and 60 -as the maximum toll fee in a day- will be considered for today. Then all toll fee of various days will be
+            summed and the total fee will be returned.
+            </summary>
+            <param name="vehicle"></param>
+            <param name="dates"></param>
+            <returns></returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1">
+            <summary>
+            The current date toll fee calculation strategy is implemented in this class
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1.GetDateTollFee(System.DateTime)">
+            <summary>
+            This method check a date and calculate its toll fee
+            </summary>
+            <param name="date">the input date for toll fee calculation</param>
+            <returns>the calculated toll fee value for the input date between 0 to int.MaxValue</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1.IsTollFreeDate(System.DateTime)">
+            <summary>
+            This method check a date that is toll free or not
+            </summary>
+            <param name="date">the input date</param>
+            <returns>true if the given date is toll free, otherwise false</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2">
+            <summary>
+            The current date toll fee calculation strategy is implemented in this class
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.GetDateTollFee(System.DateTime)">
+            <summary>
+            This method check a date and calculate its toll fee
+            </summary>
+            <param name="date">the input date for toll fee calculation</param>
+            <returns>the calculated toll fee value for the input date between 0 to int.MaxValue</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.IsTollFreeDate(System.DateTime)">
+            <summary>
+            This method check a date that is toll free or not.
+            List of National and Regional Public Holidays of Sweden in 2013:
+            https://www.calendarlabs.com/holidays/sweden/2013
+            </summary>
+            <param name="date">the input date</param>
+            <returns>true if the given date is toll free, otherwise false</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.#ctor(congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository,System.String)">
+            <summary>
+            Constructor for DateTollFeeStrategyV3 class
+            </summary>
+            <param name="taxRuleRepository">An object of ITaxRuleRepository used to retrieve tax rules</param>
+            <param name="city">The city used to calculate toll fee</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.GetDateTollFee(System.DateTime)">
+            <summary>
+            Calculates the toll fee based on the input date
+            </summary>
+            <param name="date">The date used to calculate the toll fee</param>
+            <returns>The calculated toll fee for the input date</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.IsTollFreeDate(System.DateTime)">
+            <summary>
+            This method check a date that is toll free or not.
+            List of National and Regional Public Holidays of Sweden in 2013:
+            https://www.calendarlabs.com/holidays/sweden/2013
+            </summary>
+            <param name="date">the input date</param>
+            <returns>true if the given date is toll free, otherwise false</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy">
+            <summary>
+            This interface let we implement the strategy design pattern for different congestion tax calculators
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy.GetTax(congestion.calculator.IVehicle,System.DateTime[])">
+            <summary>
+            Every Congestion Tax Calculator should implement this method to calculate and return the tax for 
+            a vehicle in different days.
+            This method calculate total tax for a vehicle in several days and overall rules for different days
+            like 'The single charge rule' can be implemented in this part.
+            </summary>
+            <param name="vehicle"></param>
+            <param name="dates"></param>
+            <returns>the tax value between 0 to int.MaxValue</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy">
+            <summary>
+            This interface let the toll fee calculator to have different strategy for dates.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy.GetDateTollFee(System.DateTime)">
+            <summary>
+            Every toll fee strategy should implement this method to return the toll fee of the received date.
+            </summary>
+            <param name="date">the input date to be checked for toll fee calculation</param>
+            <returns>the toll fee value between 0 to int.MaxValue for the input date</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy">
+            <summary>
+            This interface is used to implement strategy design pattern for toll fee calculation
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy.GetTollFee(congestion.calculator.IVehicle,System.DateTime)">
+            <summary>
+            Every toll fee calculator should implement this method to return the toll fee based on their strategy
+            </summary>
+            <param name="vehicle">this is the vehicle that its toll fee should be calculated</param>
+            <param name="date">this is the day of toll fee calculation</param>
+            <returns>the return value can be between 0 to int.MaxValue as the toll fee value</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.Interfaces.IVehicleV2">
+            <summary>
+            This interface let us 
+            </summary>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy">
+            <summary>
+            In our current toll fee calculator, the vehicle can be free of toll.
+            This interface is used to implement strategy design pattern for various vehicles toll fee calculation.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy.IsVehicleTollFree(congestion.calculator.IVehicle)">
+            <summary>
+            Every toll fee strategy should implement this method to return that is the vehicle fee of toll or not?
+            </summary>
+            <param name="vehicle">the vehicle to be checked for toll fee calculation</param>
+            <returns>true if the vehicle is free of toll fee, otherwise false</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.MainCongestionTaxCalculatorNew">
+            <summary>
+            This class uses Singleton design pattern to avoid user from instancing new dummy object for tax calculation.
+            </summary>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.TollFeeStrategyV1">
+            <summary>
+            This is our first and current strategy for toll fee calculation of every vehicle in every date.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.TollFeeStrategyV1.#ctor(congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy,congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy)">
+            <summary>
+            Here we use dependency injection strategy to get the toll fee calculation strategy for vehicles and dates
+            </summary>
+            <param name="VehicleTollFeeStrategy">the strategy of vehicles for toll fee calculation</param>
+            <param name="DateTollFeeStrategy">the strategy of dates for toll fee calculation</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.TollFeeStrategyV1.GetTollFee(congestion.calculator.IVehicle,System.DateTime)">
+            <summary>
+            This method calculate the toll fee value for the given vehicle and date.
+            </summary>
+            <param name="vehicle">the input vehicle for toll fee calculation</param>
+            <param name="date">the input date for toll fee calculation</param>
+            <returns>the calculated toll fee value for the input vehicle and date between 0 to int.MaxValue</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1">
+            <summary>
+            The current vehicle toll fee calculation strategy is implemented in this class
+            </summary>    
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1.IsVehicleTollFree(congestion.calculator.IVehicle)">
+            <summary>
+            This method check a vehicle to be toll free or not.
+            </summary>
+            <param name="vehicle">the input vehicle for checking</param>
+            <returns>true if the input vehicle is free of toll fee, otherwise false</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1.TollFreeVehicles">
+            <summary>
+            This enum contains the names of current toll free vehicles based on this strategy
+            Convention: All names should be in Capital case
+            </summary>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2">
+            <summary>
+            The current vehicle toll fee calculation strategy is implemented in this class
+            TODO: Code Review 29: This code is built after applying CR12, CR26, CR27, Please remove this line
+            </summary>    
+        </member>
+        <member name="M:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2.IsVehicleTollFree(congestion.calculator.IVehicle)">
+            <summary>
+            This method check a vehicle to be toll free or not.
+            </summary>
+            <param name="vehicle">the input vehicle for checking</param>
+            <returns>true if the input vehicle is free of toll fee, otherwise false</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2.TollFreeVehicles">
+            <summary>
+            This enum contains the names of current toll free vehicles based on this strategy
+            Convention: All names should be in Capital case
+            </summary>
+        </member>
+        <member name="T:congestion.calculator.v2.Domain.ValueObjects.Time">
+            <summary>
+            A class for representing a time of day. 
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the Time class using a number of ticks without 
+            considering the date part (year, month, day).
+            </summary>
+            <param name="ticks">A number of ticks.</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the Time class using hours, minutes, seconds, and milliseconds.
+            </summary>
+            <param name="hour">The hour component of the time.</param>
+            <param name="minute">The minute component of the time.</param>
+            <param name="second">The second component of the time.</param>
+            <param name="millisecond">The millisecond component of the time.</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.DateTime)">
+            <summary>
+            Initializes a new instance of the Time class using a DateTime object.
+            </summary>
+            <param name="dt">A DateTime object.</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Time class using a time string.
+            </summary>
+            <param name="timeString">A string that represents a time in the format "hh:mm:ss.fff".</param>
+        </member>
+        <member name="P:congestion.calculator.v2.Domain.ValueObjects.Time.AsDateTime">
+            <summary>
+            Gets or sets the time of day as a DateTime object.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Compares the current Time object with another Time object.
+            </summary>
+            <param name="other">The Time object to compare with.</param>
+            <returns>A value that indicates the relative order of the Time objects being compared.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.Equals(System.Object)">
+            <summary>
+            Determines whether the current Time object is equal to another object.
+            </summary>
+            <param name="obj">The object to compare with the current Time object.</param>
+            <returns>true if the current Time object is equal to the other object; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.GetHashCode">
+            <summary>
+            Returns a hash code for the current Time object.
+            </summary>
+            <returns>A hash code for the current Time object.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_Equality(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether two Time objects are equal.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the two Time objects are equal; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_Inequality(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether two Time objects are not equal.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the two Time objects are not equal; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThan(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether one Time object is less than another Time object.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the first Time object is less than the second Time object; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether one Time object is less than or equal to another Time object.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the first Time object is less than or equal to the second Time object; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThan(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether one Time object is greater than another Time object.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the first Time object is greater than the second Time object; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">
+            <summary>
+            Determines whether one Time object is greater than or equal to another Time object.
+            </summary>
+            <param name="left">The first Time object to compare.</param>
+            <param name="right">The second Time object to compare.</param>
+            <returns>true if the first Time object is greater than or equal to the second Time object; otherwise, false.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_Equality(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the two objects are equal, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_Inequality(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the two objects are not equal, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThan(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the left object is less than the right object, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the left object is less than or equal to the right object, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThan(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the left object is greater than the right object, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">
+            <summary>
+            This operator is used to compare a Time object with a DateTime object.
+            </summary>
+            <param name="left">The initial Time object.</param>
+            <param name="right">The second DateTime object.</param>
+            <returns>True if the left object is greater than or equal to the right object, false otherwise.</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.ToString">
+            <summary>
+            Returns a string that represents the current Time object in the format "hh:mm:ss.fff".
+            </summary>
+            <returns>A string that represents the current Time object in the format "hh:mm:ss.fff".</returns>
+        </member>
+        <member name="M:congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(System.DateTime)">
+            <summary>
+            Compares the current Time object with a DateTime object.
+            </summary>
+            <param name="other">The DateTime object to compare with.</param>
+            <returns>A value that indicates the relative order of the Time and DateTime objects being compared.</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Domain.ValueObjects.Extensions">
+            <summary>
+            A dummy try to add ToTime method to static Convert class that was impossible now
+            even though it let other classes to convert strings to Time like:
+            (null as DateTime).ToTime("12:24")
+            </summary>
+        </member>
+        <member name="T:congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository">
+            <summary>
+            Represents a repository for retrieving tax rules from a CSV file.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the CSVTaxRuleRepository class.
+            </summary>
+            <param name="filePath">The path to the CSV file containing tax rules.</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository.GetAllRules(System.String)">
+            <summary>
+            Retrieves all tax rules for a specified city.
+            </summary>
+            <param name="city">The city for which to retrieve tax rules.</param>
+            <returns>A list of TaxRuleDTO objects representing the tax rules for the specified city.</returns>
+        </member>
+        <member name="T:congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository">
+            <summary>
+            Represents a repository for retrieving tax rules from a file.
+            </summary>
+        </member>
+        <member name="M:congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the MDTaxRuleRepository class.
+            </summary>
+            <param name="filePath">The path to the file containing tax rules.</param>
+        </member>
+        <member name="M:congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.GetAllRules(System.String)">
+            <summary>
+            Retrieves all tax rules for a specified city.
+            </summary>
+            <param name="city">The city for which to retrieve tax rules.</param>
+            <returns>A list of TaxRuleDTO objects representing the tax rules for the specified city.</returns>
+        </member>
+    </members>
+</doc>

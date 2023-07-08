@@ -1,0 +1,20 @@
+City,Start Time,End Time,Amount
+Gothenburg,06:00,06:29,8
+Gothenburg,06:30,06:59,13
+Gothenburg,07:00,07:59,18
+Gothenburg,08:00,08:29,13
+Gothenburg,08:30,14:59,8
+Gothenburg,15:00,15:29,13
+Gothenburg,15:30,16:59,18
+Gothenburg,17:00,17:59,13
+Gothenburg,18:00,18:29,8
+Gothenburg,18:30,05:59,0
+Stockholm,06:00,06:59,3
+Stockholm,07:00,07:59,20
+Stockholm,08:00,08:29,15
+Stockholm,08:30,14:59,5
+Stockholm,15:00,15:29,15
+Stockholm,15:30,16:59,20
+Stockholm,17:00,17:59,10
+Stockholm,18:00,18:29,5
+Stockholm,18:30,05:59,0

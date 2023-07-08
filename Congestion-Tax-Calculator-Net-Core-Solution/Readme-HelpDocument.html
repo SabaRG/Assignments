@@ -1,0 +1,1312 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Congestion-Tax-Calculator-Net-Core</title>
+</head>
+<body>
+
+    <p><a name='assembly'></a></p>
+<h1 id="congestion-tax-calculator-net-core">Congestion-Tax-Calculator-Net-Core</h1>
+<h2 id="contents">Contents</h2>
+<ul>
+<li><a href="#T-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository" title="congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository">CSVTaxRuleRepository</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository-#ctor-System-String-" title="congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository.#ctor(System.String)">#ctor(filePath)</a></li>
+<li><a href="#M-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository-GetAllRules-System-String-" title="congestion.calculator.v2.Infrastructure.Providers.CSVTaxRuleRepository.GetAllRules(System.String)">GetAllRules(city)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-CongestionTaxCalculator" title="congestion.calculator.CongestionTaxCalculator">CongestionTaxCalculator</a>
+<ul>
+<li><a href="#M-congestion-calculator-CongestionTaxCalculator-GetTax-congestion-calculator-IVehicle,System-DateTime%5B%5D-" title="congestion.calculator.CongestionTaxCalculator.GetTax(congestion.calculator.IVehicle,System.DateTime[])">GetTax()</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV1" title="congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV1">CongestionTaxCalculatorV1</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV1-GetTax-congestion-calculator-IVehicle,System-DateTime%5B%5D-" title="congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV1.GetTax(congestion.calculator.IVehicle,System.DateTime[])">GetTax(vehicle,dates)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV2" title="congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV2">CongestionTaxCalculatorV2</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV2-GetTax-congestion-calculator-IVehicle,System-DateTime%5B%5D-" title="congestion.calculator.v2.Application.Services.CongestionTaxCalculatorV2.GetTax(congestion.calculator.IVehicle,System.DateTime[])">GetTax(vehicle,dates)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1">DateTollFeeStrategyV1</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1-GetDateTollFee-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1.GetDateTollFee(System.DateTime)">GetDateTollFee(date)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1-IsTollFreeDate-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV1.IsTollFreeDate(System.DateTime)">IsTollFreeDate(date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2">DateTollFeeStrategyV2</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-GetDateTollFee-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.GetDateTollFee(System.DateTime)">GetDateTollFee(date)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-IsTollFreeDate-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV2.IsTollFreeDate(System.DateTime)">IsTollFreeDate(date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3">DateTollFeeStrategyV3</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.#ctor(congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository,System.String)">#ctor(taxRuleRepository,city)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.GetDateTollFee(System.DateTime)">GetDateTollFee(date)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.IsTollFreeDate(System.DateTime)">IsTollFreeDate(date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Extensions" title="congestion.calculator.v2.Domain.ValueObjects.Extensions">Extensions</a></li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy">ICongestionTaxCalculatorStrategy</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime%5B%5D-" title="congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy.GetTax(congestion.calculator.IVehicle,System.DateTime[])">GetTax(vehicle,dates)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy">IDateTollFeeStrategy</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-GetDateTollFee-System-DateTime-" title="congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy.GetDateTollFee(System.DateTime)">GetDateTollFee(date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy">ITollFeeCalculatorStrategy</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy-GetTollFee-congestion-calculator-IVehicle,System-DateTime-" title="congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy.GetTollFee(congestion.calculator.IVehicle,System.DateTime)">GetTollFee(vehicle,date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy">IVehicleTollFeeStrategy</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy-IsVehicleTollFree-congestion-calculator-IVehicle-" title="congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy.IsVehicleTollFree(congestion.calculator.IVehicle)">IsVehicleTollFree(vehicle)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleV2" title="congestion.calculator.v2.Application.Services.Interfaces.IVehicleV2">IVehicleV2</a></li>
+<li><a href="#T-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository" title="congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository">MDTaxRuleRepository</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-#ctor-System-String-" title="congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.#ctor(System.String)">#ctor(filePath)</a></li>
+<li><a href="#M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-GetAllRules-System-String-" title="congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.GetAllRules(System.String)">GetAllRules(city)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-MainCongestionTaxCalculatorNew" title="congestion.calculator.v2.Application.Services.MainCongestionTaxCalculatorNew">MainCongestionTaxCalculatorNew</a></li>
+<li><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">Time</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int64-" title="congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int64)">#ctor(ticks)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int32,System-Int32,System-Int32,System-Int32-" title="congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">#ctor(hour,minute,second,millisecond)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.DateTime)">#ctor(dt)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-String-" title="congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.String)">#ctor(timeString)</a></li>
+<li><a href="#P-congestion-calculator-v2-Domain-ValueObjects-Time-AsDateTime" title="congestion.calculator.v2.Domain.ValueObjects.Time.AsDateTime">AsDateTime</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(congestion.calculator.v2.Domain.ValueObjects.Time)">CompareTo(other)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.CompareTo(System.DateTime)">CompareTo(other)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-Equals-System-Object-" title="congestion.calculator.v2.Domain.ValueObjects.Time.Equals(System.Object)">Equals(obj)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-GetHashCode" title="congestion.calculator.v2.Domain.ValueObjects.Time.GetHashCode">GetHashCode()</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-ToString" title="congestion.calculator.v2.Domain.ValueObjects.Time.ToString">ToString()</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_Equality(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_Equality(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_Equality(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_Equality(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThan(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_GreaterThan(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThan(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_GreaterThan(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_GreaterThanOrEqual(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_GreaterThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_GreaterThanOrEqual(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_Inequality(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_Inequality(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_Inequality(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_Inequality(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThan(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_LessThan(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThan(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_LessThan(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">op_LessThanOrEqual(left,right)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Time.op_LessThanOrEqual(congestion.calculator.v2.Domain.ValueObjects.Time,System.DateTime)">op_LessThanOrEqual(left,right)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-TollFeeStrategyV1" title="congestion.calculator.v2.Application.Services.TollFeeStrategyV1">TollFeeStrategyV1</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-#ctor-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy,congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-" title="congestion.calculator.v2.Application.Services.TollFeeStrategyV1.#ctor(congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy,congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy)">#ctor(VehicleTollFeeStrategy,DateTollFeeStrategy)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-GetTollFee-congestion-calculator-IVehicle,System-DateTime-" title="congestion.calculator.v2.Application.Services.TollFeeStrategyV1.GetTollFee(congestion.calculator.IVehicle,System.DateTime)">GetTollFee(vehicle,date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-TollFreeVehicles" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1.TollFreeVehicles">TollFreeVehicles</a></li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-TollFreeVehicles" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2.TollFreeVehicles">TollFreeVehicles</a></li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1">VehicleTollFeeStrategyV1</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-IsVehicleTollFree-congestion-calculator-IVehicle-" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1.IsVehicleTollFree(congestion.calculator.IVehicle)">IsVehicleTollFree(vehicle)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2">VehicleTollFeeStrategyV2</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-IsVehicleTollFree-congestion-calculator-IVehicle-" title="congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2.IsVehicleTollFree(congestion.calculator.IVehicle)">IsVehicleTollFree(vehicle)</a></li>
+</ul>
+</li>
+</ul>
+<p><a name='T-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository'></a></p>
+<h2 id="csvtaxrulerepository-type">CSVTaxRuleRepository <code>type</code></h2>
+<h5 id="namespace">Namespace</h5>
+<p>congestion.calculator.v2.Infrastructure.Providers</p>
+<h5 id="summary">Summary</h5>
+<p>Represents a repository for retrieving tax rules from a CSV file.</p>
+<p><a name='M-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository-#ctor-System-String-'></a></p>
+<h3 id="ctorfilepath-constructor">#ctor(filePath) <code>constructor</code></h3>
+<h5 id="summary-1">Summary</h5>
+<p>Initializes a new instance of the CSVTaxRuleRepository class.</p>
+<h5 id="parameters">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filePath</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The path to the CSV file containing tax rules.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Infrastructure-Providers-CSVTaxRuleRepository-GetAllRules-System-String-'></a></p>
+<h3 id="getallrulescity-method">GetAllRules(city) <code>method</code></h3>
+<h5 id="summary-2">Summary</h5>
+<p>Retrieves all tax rules for a specified city.</p>
+<h5 id="returns">Returns</h5>
+<p>A list of TaxRuleDTO objects representing the tax rules for the specified city.</p>
+<h5 id="parameters-1">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>city</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The city for which to retrieve tax rules.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-CongestionTaxCalculator'></a></p>
+<h2 id="congestiontaxcalculator-type">CongestionTaxCalculator <code>type</code></h2>
+<h5 id="namespace-1">Namespace</h5>
+<p>congestion.calculator</p>
+<p><a name='M-congestion-calculator-CongestionTaxCalculator-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a></p>
+<h3 id="gettax-method">GetTax() <code>method</code></h3>
+<h5 id="parameters-2">Parameters</h5>
+<p>This method has no parameters.</p>
+<p><a name='T-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV1'></a></p>
+<h2 id="congestiontaxcalculatorv1-type">CongestionTaxCalculatorV1 <code>type</code></h2>
+<h5 id="namespace-2">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-3">Summary</h5>
+<p>This is the main class for CongestionTaxCalculator of a vehicle in several days</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV1-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a></p>
+<h3 id="gettaxvehicledates-method">GetTax(vehicle,dates) <code>method</code></h3>
+<h5 id="summary-4">Summary</h5>
+<h5 id="returns-1">Returns</h5>
+<h5 id="parameters-3">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td></td>
+</tr>
+<tr>
+<td>dates</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime%5B%5D" title="System.DateTime[]">System.DateTime[]</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV2'></a></p>
+<h2 id="congestiontaxcalculatorv2-type">CongestionTaxCalculatorV2 <code>type</code></h2>
+<h5 id="namespace-3">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-5">Summary</h5>
+<p>This is the main class for CongestionTaxCalculator of a vehicle in several days
+This new version added `The single charge rule`</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV2-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a></p>
+<h3 id="gettaxvehicledates-method-1">GetTax(vehicle,dates) <code>method</code></h3>
+<h5 id="summary-6">Summary</h5>
+<p>This method calculate total tax for a vehicle in several days and overall rules for different days
+like 'The single charge rule' is implemented in this code. As this rule is a little general and vague,
+in this version of `CongestionTaxCalculatorV2` in the first step all the date_times of every day based on
+their [year,month,day] value will be grouped and then dates of a day will be ordered.
+For every day, every date_time will be checked with all next ordered date_times and those which have less span
+than 60 minutes will be checked for maximum toll fee and the final value for this span will be the maximum value.
+Then all of date_times in this span will be skipped, and this behavior will be repeated for next date_times after
+the span. The span maybe have just 1 date_time if there is no other date_time in its next 60 minutes, or maybe its
+length be 2...N, and then this N dates will be skipped for the next round.
+Then, the final maximum toll fee for all 60 minutes spans will be summed and the minimum of total sum of this day
+and 60 -as the maximum toll fee in a day- will be considered for today. Then all toll fee of various days will be
+summed and the total fee will be returned.</p>
+<h5 id="returns-2">Returns</h5>
+<h5 id="parameters-4">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td></td>
+</tr>
+<tr>
+<td>dates</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime%5B%5D" title="System.DateTime[]">System.DateTime[]</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1'></a></p>
+<h2 id="datetollfeestrategyv1-type">DateTollFeeStrategyV1 <code>type</code></h2>
+<h5 id="namespace-4">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-7">Summary</h5>
+<p>The current date toll fee calculation strategy is implemented in this class</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1-GetDateTollFee-System-DateTime-'></a></p>
+<h3 id="getdatetollfeedate-method">GetDateTollFee(date) <code>method</code></h3>
+<h5 id="summary-8">Summary</h5>
+<p>This method check a date and calculate its toll fee</p>
+<h5 id="returns-3">Returns</h5>
+<p>the calculated toll fee value for the input date between 0 to int.MaxValue</p>
+<h5 id="parameters-5">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV1-IsTollFreeDate-System-DateTime-'></a></p>
+<h3 id="istollfreedatedate-method">IsTollFreeDate(date) <code>method</code></h3>
+<h5 id="summary-9">Summary</h5>
+<p>This method check a date that is toll free or not</p>
+<h5 id="returns-4">Returns</h5>
+<p>true if the given date is toll free, otherwise false</p>
+<h5 id="parameters-6">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2'></a></p>
+<h2 id="datetollfeestrategyv2-type">DateTollFeeStrategyV2 <code>type</code></h2>
+<h5 id="namespace-5">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-10">Summary</h5>
+<p>The current date toll fee calculation strategy is implemented in this class</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-GetDateTollFee-System-DateTime-'></a></p>
+<h3 id="getdatetollfeedate-method-1">GetDateTollFee(date) <code>method</code></h3>
+<h5 id="summary-11">Summary</h5>
+<p>This method check a date and calculate its toll fee</p>
+<h5 id="returns-5">Returns</h5>
+<p>the calculated toll fee value for the input date between 0 to int.MaxValue</p>
+<h5 id="parameters-7">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV2-IsTollFreeDate-System-DateTime-'></a></p>
+<h3 id="istollfreedatedate-method-1">IsTollFreeDate(date) <code>method</code></h3>
+<h5 id="summary-12">Summary</h5>
+<p>This method check a date that is toll free or not.
+List of National and Regional Public Holidays of Sweden in 2013:
+<a href="https://www.calendarlabs.com/holidays/sweden/2013">https://www.calendarlabs.com/holidays/sweden/2013</a></p>
+<h5 id="returns-6">Returns</h5>
+<p>true if the given date is toll free, otherwise false</p>
+<h5 id="parameters-8">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3'></a></p>
+<h2 id="datetollfeestrategyv3-type">DateTollFeeStrategyV3 <code>type</code></h2>
+<h5 id="namespace-6">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String-'></a></p>
+<h3 id="ctortaxrulerepositorycity-constructor">#ctor(taxRuleRepository,city) <code>constructor</code></h3>
+<h5 id="summary-13">Summary</h5>
+<p>Constructor for DateTollFeeStrategyV3 class</p>
+<h5 id="parameters-9">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>taxRuleRepository</td>
+<td><a href="#T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository" title="congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository">congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository</a></td>
+<td>An object of ITaxRuleRepository used to retrieve tax rules</td>
+</tr>
+<tr>
+<td>city</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The city used to calculate toll fee</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime-'></a></p>
+<h3 id="getdatetollfeedate-method-2">GetDateTollFee(date) <code>method</code></h3>
+<h5 id="summary-14">Summary</h5>
+<p>Calculates the toll fee based on the input date</p>
+<h5 id="returns-7">Returns</h5>
+<p>The calculated toll fee for the input date</p>
+<h5 id="parameters-10">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The date used to calculate the toll fee</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime-'></a></p>
+<h3 id="istollfreedatedate-method-2">IsTollFreeDate(date) <code>method</code></h3>
+<h5 id="summary-15">Summary</h5>
+<p>This method check a date that is toll free or not.
+List of National and Regional Public Holidays of Sweden in 2013:
+<a href="https://www.calendarlabs.com/holidays/sweden/2013">https://www.calendarlabs.com/holidays/sweden/2013</a></p>
+<h5 id="returns-8">Returns</h5>
+<p>true if the given date is toll free, otherwise false</p>
+<h5 id="parameters-11">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Domain-ValueObjects-Extensions'></a></p>
+<h2 id="extensions-type">Extensions <code>type</code></h2>
+<h5 id="namespace-7">Namespace</h5>
+<p>congestion.calculator.v2.Domain.ValueObjects</p>
+<h5 id="summary-16">Summary</h5>
+<p>A dummy try to add ToTime method to static Convert class that was impossible now
+even though it let other classes to convert strings to Time like:
+(null as DateTime).ToTime(&quot;12:24&quot;)</p>
+<p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy'></a></p>
+<h2 id="icongestiontaxcalculatorstrategy-type">ICongestionTaxCalculatorStrategy <code>type</code></h2>
+<h5 id="namespace-8">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Interfaces</p>
+<h5 id="summary-17">Summary</h5>
+<p>This interface let we implement the strategy design pattern for different congestion tax calculators</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a></p>
+<h3 id="gettaxvehicledates-method-2">GetTax(vehicle,dates) <code>method</code></h3>
+<h5 id="summary-18">Summary</h5>
+<p>Every Congestion Tax Calculator should implement this method to calculate and return the tax for
+a vehicle in different days.
+This method calculate total tax for a vehicle in several days and overall rules for different days
+like 'The single charge rule' can be implemented in this part.</p>
+<h5 id="returns-9">Returns</h5>
+<p>the tax value between 0 to int.MaxValue</p>
+<h5 id="parameters-12">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td></td>
+</tr>
+<tr>
+<td>dates</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime%5B%5D" title="System.DateTime[]">System.DateTime[]</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy'></a></p>
+<h2 id="idatetollfeestrategy-type">IDateTollFeeStrategy <code>type</code></h2>
+<h5 id="namespace-9">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Interfaces</p>
+<h5 id="summary-19">Summary</h5>
+<p>This interface let the toll fee calculator to have different strategy for dates.</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-GetDateTollFee-System-DateTime-'></a></p>
+<h3 id="getdatetollfeedate-method-3">GetDateTollFee(date) <code>method</code></h3>
+<h5 id="summary-20">Summary</h5>
+<p>Every toll fee strategy should implement this method to return the toll fee of the received date.</p>
+<h5 id="returns-10">Returns</h5>
+<p>the toll fee value between 0 to int.MaxValue for the input date</p>
+<h5 id="parameters-13">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date to be checked for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy'></a></p>
+<h2 id="itollfeecalculatorstrategy-type">ITollFeeCalculatorStrategy <code>type</code></h2>
+<h5 id="namespace-10">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Interfaces</p>
+<h5 id="summary-21">Summary</h5>
+<p>This interface is used to implement strategy design pattern for toll fee calculation</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy-GetTollFee-congestion-calculator-IVehicle,System-DateTime-'></a></p>
+<h3 id="gettollfeevehicledate-method">GetTollFee(vehicle,date) <code>method</code></h3>
+<h5 id="summary-22">Summary</h5>
+<p>Every toll fee calculator should implement this method to return the toll fee based on their strategy</p>
+<h5 id="returns-11">Returns</h5>
+<p>the return value can be between 0 to int.MaxValue as the toll fee value</p>
+<h5 id="parameters-14">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td>this is the vehicle that its toll fee should be calculated</td>
+</tr>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>this is the day of toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy'></a></p>
+<h2 id="ivehicletollfeestrategy-type">IVehicleTollFeeStrategy <code>type</code></h2>
+<h5 id="namespace-11">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Interfaces</p>
+<h5 id="summary-23">Summary</h5>
+<p>In our current toll fee calculator, the vehicle can be free of toll.
+This interface is used to implement strategy design pattern for various vehicles toll fee calculation.</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
+<h3 id="isvehicletollfreevehicle-method">IsVehicleTollFree(vehicle) <code>method</code></h3>
+<h5 id="summary-24">Summary</h5>
+<p>Every toll fee strategy should implement this method to return that is the vehicle fee of toll or not?</p>
+<h5 id="returns-12">Returns</h5>
+<p>true if the vehicle is free of toll fee, otherwise false</p>
+<h5 id="parameters-15">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td>the vehicle to be checked for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleV2'></a></p>
+<h2 id="ivehiclev2-type">IVehicleV2 <code>type</code></h2>
+<h5 id="namespace-12">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Interfaces</p>
+<h5 id="summary-25">Summary</h5>
+<p>This interface let us</p>
+<p><a name='T-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository'></a></p>
+<h2 id="mdtaxrulerepository-type">MDTaxRuleRepository <code>type</code></h2>
+<h5 id="namespace-13">Namespace</h5>
+<p>congestion.calculator.v2.Infrastructure.Providers</p>
+<h5 id="summary-26">Summary</h5>
+<p>Represents a repository for retrieving tax rules from a file.</p>
+<p><a name='M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-#ctor-System-String-'></a></p>
+<h3 id="ctorfilepath-constructor-1">#ctor(filePath) <code>constructor</code></h3>
+<h5 id="summary-27">Summary</h5>
+<p>Initializes a new instance of the MDTaxRuleRepository class.</p>
+<h5 id="parameters-16">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filePath</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The path to the file containing tax rules.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-GetAllRules-System-String-'></a></p>
+<h3 id="getallrulescity-method-1">GetAllRules(city) <code>method</code></h3>
+<h5 id="summary-28">Summary</h5>
+<p>Retrieves all tax rules for a specified city.</p>
+<h5 id="returns-13">Returns</h5>
+<p>A list of TaxRuleDTO objects representing the tax rules for the specified city.</p>
+<h5 id="parameters-17">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>city</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The city for which to retrieve tax rules.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-MainCongestionTaxCalculatorNew'></a></p>
+<h2 id="maincongestiontaxcalculatornew-type">MainCongestionTaxCalculatorNew <code>type</code></h2>
+<h5 id="namespace-14">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-29">Summary</h5>
+<p>This class uses Singleton design pattern to avoid user from instancing new dummy object for tax calculation.</p>
+<p><a name='T-congestion-calculator-v2-Domain-ValueObjects-Time'></a></p>
+<h2 id="time-type">Time <code>type</code></h2>
+<h5 id="namespace-15">Namespace</h5>
+<p>congestion.calculator.v2.Domain.ValueObjects</p>
+<h5 id="summary-30">Summary</h5>
+<p>A class for representing a time of day.</p>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int64-'></a></p>
+<h3 id="ctorticks-constructor">#ctor(ticks) <code>constructor</code></h3>
+<h5 id="summary-31">Summary</h5>
+<p>Initializes a new instance of the Time class using a number of ticks without
+considering the date part (year, month, day).</p>
+<h5 id="parameters-18">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ticks</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int64" title="System.Int64">System.Int64</a></td>
+<td>A number of ticks.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int32,System-Int32,System-Int32,System-Int32-'></a></p>
+<h3 id="ctorhourminutesecondmillisecond-constructor">#ctor(hour,minute,second,millisecond) <code>constructor</code></h3>
+<h5 id="summary-32">Summary</h5>
+<p>Initializes a new instance of the Time class using hours, minutes, seconds, and milliseconds.</p>
+<h5 id="parameters-19">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hour</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The hour component of the time.</td>
+</tr>
+<tr>
+<td>minute</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The minute component of the time.</td>
+</tr>
+<tr>
+<td>second</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The second component of the time.</td>
+</tr>
+<tr>
+<td>millisecond</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The millisecond component of the time.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-DateTime-'></a></p>
+<h3 id="ctordt-constructor">#ctor(dt) <code>constructor</code></h3>
+<h5 id="summary-33">Summary</h5>
+<p>Initializes a new instance of the Time class using a DateTime object.</p>
+<h5 id="parameters-20">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dt</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>A DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-String-'></a></p>
+<h3 id="ctortimestring-constructor">#ctor(timeString) <code>constructor</code></h3>
+<h5 id="summary-34">Summary</h5>
+<p>Initializes a new instance of the Time class using a time string.</p>
+<h5 id="parameters-21">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timeString</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>A string that represents a time in the format &quot;hh:mm:ss.fff&quot;.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='P-congestion-calculator-v2-Domain-ValueObjects-Time-AsDateTime'></a></p>
+<h3 id="asdatetime-property">AsDateTime <code>property</code></h3>
+<h5 id="summary-35">Summary</h5>
+<p>Gets or sets the time of day as a DateTime object.</p>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="comparetoother-method">CompareTo(other) <code>method</code></h3>
+<h5 id="summary-36">Summary</h5>
+<p>Compares the current Time object with another Time object.</p>
+<h5 id="returns-14">Returns</h5>
+<p>A value that indicates the relative order of the Time objects being compared.</p>
+<h5 id="parameters-22">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>other</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The Time object to compare with.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-System-DateTime-'></a></p>
+<h3 id="comparetoother-method-1">CompareTo(other) <code>method</code></h3>
+<h5 id="summary-37">Summary</h5>
+<p>Compares the current Time object with a DateTime object.</p>
+<h5 id="returns-15">Returns</h5>
+<p>A value that indicates the relative order of the Time and DateTime objects being compared.</p>
+<h5 id="parameters-23">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>other</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The DateTime object to compare with.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-Equals-System-Object-'></a></p>
+<h3 id="equalsobj-method">Equals(obj) <code>method</code></h3>
+<h5 id="summary-38">Summary</h5>
+<p>Determines whether the current Time object is equal to another object.</p>
+<h5 id="returns-16">Returns</h5>
+<p>true if the current Time object is equal to the other object; otherwise, false.</p>
+<h5 id="parameters-24">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>obj</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Object" title="System.Object">System.Object</a></td>
+<td>The object to compare with the current Time object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-GetHashCode'></a></p>
+<h3 id="gethashcode-method">GetHashCode() <code>method</code></h3>
+<h5 id="summary-39">Summary</h5>
+<p>Returns a hash code for the current Time object.</p>
+<h5 id="returns-17">Returns</h5>
+<p>A hash code for the current Time object.</p>
+<h5 id="parameters-25">Parameters</h5>
+<p>This method has no parameters.</p>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-ToString'></a></p>
+<h3 id="tostring-method">ToString() <code>method</code></h3>
+<h5 id="summary-40">Summary</h5>
+<p>Returns a string that represents the current Time object in the format &quot;hh:mm:ss.fff&quot;.</p>
+<h5 id="returns-18">Returns</h5>
+<p>A string that represents the current Time object in the format &quot;hh:mm:ss.fff&quot;.</p>
+<h5 id="parameters-26">Parameters</h5>
+<p>This method has no parameters.</p>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_equalityleftright-method">op_Equality(left,right) <code>method</code></h3>
+<h5 id="summary-41">Summary</h5>
+<p>Determines whether two Time objects are equal.</p>
+<h5 id="returns-19">Returns</h5>
+<p>true if the two Time objects are equal; otherwise, false.</p>
+<h5 id="parameters-27">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_equalityleftright-method-1">op_Equality(left,right) <code>method</code></h3>
+<h5 id="summary-42">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-20">Returns</h5>
+<p>True if the two objects are equal, false otherwise.</p>
+<h5 id="parameters-28">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_greaterthanleftright-method">op_GreaterThan(left,right) <code>method</code></h3>
+<h5 id="summary-43">Summary</h5>
+<p>Determines whether one Time object is greater than another Time object.</p>
+<h5 id="returns-21">Returns</h5>
+<p>true if the first Time object is greater than the second Time object; otherwise, false.</p>
+<h5 id="parameters-29">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_greaterthanleftright-method-1">op_GreaterThan(left,right) <code>method</code></h3>
+<h5 id="summary-44">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-22">Returns</h5>
+<p>True if the left object is greater than the right object, false otherwise.</p>
+<h5 id="parameters-30">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_greaterthanorequalleftright-method">op_GreaterThanOrEqual(left,right) <code>method</code></h3>
+<h5 id="summary-45">Summary</h5>
+<p>Determines whether one Time object is greater than or equal to another Time object.</p>
+<h5 id="returns-23">Returns</h5>
+<p>true if the first Time object is greater than or equal to the second Time object; otherwise, false.</p>
+<h5 id="parameters-31">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_greaterthanorequalleftright-method-1">op_GreaterThanOrEqual(left,right) <code>method</code></h3>
+<h5 id="summary-46">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-24">Returns</h5>
+<p>True if the left object is greater than or equal to the right object, false otherwise.</p>
+<h5 id="parameters-32">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_inequalityleftright-method">op_Inequality(left,right) <code>method</code></h3>
+<h5 id="summary-47">Summary</h5>
+<p>Determines whether two Time objects are not equal.</p>
+<h5 id="returns-25">Returns</h5>
+<p>true if the two Time objects are not equal; otherwise, false.</p>
+<h5 id="parameters-33">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_inequalityleftright-method-1">op_Inequality(left,right) <code>method</code></h3>
+<h5 id="summary-48">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-26">Returns</h5>
+<p>True if the two objects are not equal, false otherwise.</p>
+<h5 id="parameters-34">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_lessthanleftright-method">op_LessThan(left,right) <code>method</code></h3>
+<h5 id="summary-49">Summary</h5>
+<p>Determines whether one Time object is less than another Time object.</p>
+<h5 id="returns-27">Returns</h5>
+<p>true if the first Time object is less than the second Time object; otherwise, false.</p>
+<h5 id="parameters-35">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_lessthanleftright-method-1">op_LessThan(left,right) <code>method</code></h3>
+<h5 id="summary-50">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-28">Returns</h5>
+<p>True if the left object is less than the right object, false otherwise.</p>
+<h5 id="parameters-36">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="op_lessthanorequalleftright-method">op_LessThanOrEqual(left,right) <code>method</code></h3>
+<h5 id="summary-51">Summary</h5>
+<p>Determines whether one Time object is less than or equal to another Time object.</p>
+<h5 id="returns-29">Returns</h5>
+<p>true if the first Time object is less than or equal to the second Time object; otherwise, false.</p>
+<h5 id="parameters-37">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The first Time object to compare.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The second Time object to compare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
+<h3 id="op_lessthanorequalleftright-method-1">op_LessThanOrEqual(left,right) <code>method</code></h3>
+<h5 id="summary-52">Summary</h5>
+<p>This operator is used to compare a Time object with a DateTime object.</p>
+<h5 id="returns-30">Returns</h5>
+<p>True if the left object is less than or equal to the right object, false otherwise.</p>
+<h5 id="parameters-38">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The initial Time object.</td>
+</tr>
+<tr>
+<td>right</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The second DateTime object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-TollFeeStrategyV1'></a></p>
+<h2 id="tollfeestrategyv1-type">TollFeeStrategyV1 <code>type</code></h2>
+<h5 id="namespace-16">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-53">Summary</h5>
+<p>This is our first and current strategy for toll fee calculation of every vehicle in every date.</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-#ctor-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy,congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-'></a></p>
+<h3 id="ctorvehicletollfeestrategydatetollfeestrategy-constructor">#ctor(VehicleTollFeeStrategy,DateTollFeeStrategy) <code>constructor</code></h3>
+<h5 id="summary-54">Summary</h5>
+<p>Here we use dependency injection strategy to get the toll fee calculation strategy for vehicles and dates</p>
+<h5 id="parameters-39">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VehicleTollFeeStrategy</td>
+<td><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy">congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy</a></td>
+<td>the strategy of vehicles for toll fee calculation</td>
+</tr>
+<tr>
+<td>DateTollFeeStrategy</td>
+<td><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy">congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy</a></td>
+<td>the strategy of dates for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-GetTollFee-congestion-calculator-IVehicle,System-DateTime-'></a></p>
+<h3 id="gettollfeevehicledate-method-1">GetTollFee(vehicle,date) <code>method</code></h3>
+<h5 id="summary-55">Summary</h5>
+<p>This method calculate the toll fee value for the given vehicle and date.</p>
+<h5 id="returns-31">Returns</h5>
+<p>the calculated toll fee value for the input vehicle and date between 0 to int.MaxValue</p>
+<h5 id="parameters-40">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td>the input vehicle for toll fee calculation</td>
+</tr>
+<tr>
+<td>date</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>the input date for toll fee calculation</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-TollFreeVehicles'></a></p>
+<h2 id="tollfreevehicles-type">TollFreeVehicles <code>type</code></h2>
+<h5 id="namespace-17">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1</p>
+<h5 id="summary-56">Summary</h5>
+<p>This enum contains the names of current toll free vehicles based on this strategy
+Convention: All names should be in Capital case</p>
+<p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-TollFreeVehicles'></a></p>
+<h2 id="tollfreevehicles-type-1">TollFreeVehicles <code>type</code></h2>
+<h5 id="namespace-18">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2</p>
+<h5 id="summary-57">Summary</h5>
+<p>This enum contains the names of current toll free vehicles based on this strategy
+Convention: All names should be in Capital case</p>
+<p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1'></a></p>
+<h2 id="vehicletollfeestrategyv1-type">VehicleTollFeeStrategyV1 <code>type</code></h2>
+<h5 id="namespace-19">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-58">Summary</h5>
+<p>The current vehicle toll fee calculation strategy is implemented in this class</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
+<h3 id="isvehicletollfreevehicle-method-1">IsVehicleTollFree(vehicle) <code>method</code></h3>
+<h5 id="summary-59">Summary</h5>
+<p>This method check a vehicle to be toll free or not.</p>
+<h5 id="returns-32">Returns</h5>
+<p>true if the input vehicle is free of toll fee, otherwise false</p>
+<h5 id="parameters-41">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td>the input vehicle for checking</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2'></a></p>
+<h2 id="vehicletollfeestrategyv2-type">VehicleTollFeeStrategyV2 <code>type</code></h2>
+<h5 id="namespace-20">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-60">Summary</h5>
+<p>The current vehicle toll fee calculation strategy is implemented in this class
+TODO: Code Review 29: This code is built after applying CR12, CR26, CR27, Please remove this line</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
+<h3 id="isvehicletollfreevehicle-method-2">IsVehicleTollFree(vehicle) <code>method</code></h3>
+<h5 id="summary-61">Summary</h5>
+<p>This method check a vehicle to be toll free or not.</p>
+<h5 id="returns-33">Returns</h5>
+<p>true if the input vehicle is free of toll fee, otherwise false</p>
+<h5 id="parameters-42">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vehicle</td>
+<td><a href="#T-congestion-calculator-IVehicle" title="congestion.calculator.IVehicle">congestion.calculator.IVehicle</a></td>
+<td>the input vehicle for checking</td>
+</tr>
+</tbody>
+</table>
+
+
+</body>
+</html>
