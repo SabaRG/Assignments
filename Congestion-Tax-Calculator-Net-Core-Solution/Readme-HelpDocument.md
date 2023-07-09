@@ -133,14 +133,16 @@ congestion.calculator.v2.Application.Services
 
 ##### Summary
 
-This is the main class for CongestionTaxCalculator of a vehicle in several days
+This is the main class for CongestionTaxCalculator of a vehicle in several days.
+It is a re engineered version of the main assignment, but as it has many bugs, 
+I defined it as an obsolete class to warn anybody that instantiate it and also I exclude it from code coverage.
 
 <a name='M-congestion-calculator-v2-Application-Services-CongestionTaxCalculatorV1-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a>
 ### GetTax(vehicle,dates) `method`
 
 ##### Summary
 
-
+This method must calculate and return toll fee for different vehicles and dates, even though it has many bugs now.
 
 ##### Returns
 
