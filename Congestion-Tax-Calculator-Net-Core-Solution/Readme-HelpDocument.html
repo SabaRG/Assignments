@@ -49,7 +49,17 @@
 <li><a href="#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime-" title="congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.IsTollFreeDate(System.DateTime)">IsTollFreeDate(date)</a></li>
 </ul>
 </li>
-<li><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Extensions" title="congestion.calculator.v2.Domain.ValueObjects.Extensions">Extensions</a></li>
+<li><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Extensions" title="congestion.calculator.v2.Domain.ValueObjects.Extensions">Extensions</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-Between-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.Between(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">Between(this,from,to)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualBothSides-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualBothSides(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">BetweenOrEqualBothSides(this,from,to)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualLeftSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualLeftSide(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">BetweenOrEqualLeftSide(this,from,to)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualRightSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualRightSide(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)">BetweenOrEqualRightSide(this,from,to)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-DateTime-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.ToTime(System.DateTime)">ToTime(this)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-String-" title="congestion.calculator.v2.Domain.ValueObjects.Extensions.ToTime(System.String)">ToTime(this)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.HolidayType">HolidayType</a></li>
 <li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy">ICongestionTaxCalculatorStrategy</a>
 <ul>
 <li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime%5B%5D-" title="congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy.GetTax(congestion.calculator.IVehicle,System.DateTime[])">GetTax(vehicle,dates)</a></li>
@@ -58,6 +68,11 @@
 <li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy">IDateTollFeeStrategy</a>
 <ul>
 <li><a href="#M-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-GetDateTollFee-System-DateTime-" title="congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy.GetDateTollFee(System.DateTime)">GetDateTollFee(date)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository" title="congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository">ITaxRuleRepository</a>
+<ul>
+<li><a href="#M-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository-GetAllRules-System-String-" title="congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository.GetAllRules(System.String)">GetAllRules(city)</a></li>
 </ul>
 </li>
 <li><a href="#T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy" title="congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy">ITollFeeCalculatorStrategy</a>
@@ -78,6 +93,32 @@
 </ul>
 </li>
 <li><a href="#T-congestion-calculator-v2-Application-Services-MainCongestionTaxCalculatorNew" title="congestion.calculator.v2.Application.Services.MainCongestionTaxCalculatorNew">MainCongestionTaxCalculatorNew</a></li>
+<li><a href="#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService">SwedishHolidayService</a>
+<ul>
+<li><a href="#F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishPublicHolidays" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.swedishPublicHolidays">swedishPublicHolidays</a></li>
+<li><a href="#F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishWeeklyHoliday" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.swedishWeeklyHoliday">swedishWeeklyHoliday</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAdventSunday-System-Int32,System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateAdventSunday(System.Int32,System.Int32)">CalculateAdventSunday(year,adventNumber)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAllSaintsEve-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateAllSaintsEve(System.Int32)">CalculateAllSaintsEve(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateFathersDay-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateFathersDay(System.Int32)">CalculateFathersDay(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMidsummersEve-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateMidsummersEve(System.Int32)">CalculateMidsummersEve(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMothersDay-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateMothersDay(System.Int32)">CalculateMothersDay(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetEasterSunday-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetEasterSunday(System.Int32)">GetEasterSunday(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishCommonLocalHolidaysAndTitle-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishCommonLocalHolidaysAndTitle(System.Int32)">GetSwedishCommonLocalHolidaysAndTitle(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishPublicHolidaysAndTitle-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishPublicHolidaysAndTitle(System.Int32)">GetSwedishPublicHolidaysAndTitle(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishTypicalNonWorkingHolidaysAndTitle-System-Int32-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishTypicalNonWorkingHolidaysAndTitle(System.Int32)">GetSwedishTypicalNonWorkingHolidaysAndTitle(year)</a></li>
+<li><a href="#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-IsHoliday-System-DateTime,congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType-" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.IsHoliday(System.DateTime,congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.HolidayType)">IsHoliday(inputDate)</a></li>
+</ul>
+</li>
+<li><a href="#T-congestion-calculator-v2-Domain-Models-TaxRuleDTO" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO">TaxRuleDTO</a>
+<ul>
+<li><a href="#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-City" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.City">City</a></li>
+<li><a href="#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-EndTime" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.EndTime">EndTime</a></li>
+<li><a href="#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Fee" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.Fee">Fee</a></li>
+<li><a href="#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-StarTime" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.StarTime">StarTime</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Equals-System-Object-" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.Equals(System.Object)">Equals(obj)</a></li>
+<li><a href="#M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-ToString" title="congestion.calculator.v2.Domain.Models.TaxRuleDTO.ToString">ToString()</a></li>
+</ul>
+</li>
 <li><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">Time</a>
 <ul>
 <li><a href="#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int64-" title="congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int64)">#ctor(ticks)</a></li>
@@ -371,9 +412,13 @@ List of National and Regional Public Holidays of Sweden in 2013:
 <h2 id="datetollfeestrategyv3-type">DateTollFeeStrategyV3 <code>type</code></h2>
 <h5 id="namespace-6">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services</p>
+<h5 id="summary-13">Summary</h5>
+<p>The new date toll fee calculation strategy is implemented in this class
+which its rule is not fixed and hard coded and it gets the rules from a repository,
+besides the holiday calculation is not hard coded too which cause less CC (Cyclomatic complexity).</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String-'></a></p>
 <h3 id="ctortaxrulerepositorycity-constructor">#ctor(taxRuleRepository,city) <code>constructor</code></h3>
-<h5 id="summary-13">Summary</h5>
+<h5 id="summary-14">Summary</h5>
 <p>Constructor for DateTollFeeStrategyV3 class</p>
 <h5 id="parameters-9">Parameters</h5>
 <table>
@@ -399,7 +444,7 @@ List of National and Regional Public Holidays of Sweden in 2013:
 </table>
 <p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime-'></a></p>
 <h3 id="getdatetollfeedate-method-2">GetDateTollFee(date) <code>method</code></h3>
-<h5 id="summary-14">Summary</h5>
+<h5 id="summary-15">Summary</h5>
 <p>Calculates the toll fee based on the input date</p>
 <h5 id="returns-7">Returns</h5>
 <p>The calculated toll fee for the input date</p>
@@ -422,7 +467,7 @@ List of National and Regional Public Holidays of Sweden in 2013:
 </table>
 <p><a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime-'></a></p>
 <h3 id="istollfreedatedate-method-2">IsTollFreeDate(date) <code>method</code></h3>
-<h5 id="summary-15">Summary</h5>
+<h5 id="summary-16">Summary</h5>
 <p>This method check a date that is toll free or not.
 List of National and Regional Public Holidays of Sweden in 2013:
 <a href="https://www.calendarlabs.com/holidays/sweden/2013">https://www.calendarlabs.com/holidays/sweden/2013</a></p>
@@ -449,26 +494,211 @@ List of National and Regional Public Holidays of Sweden in 2013:
 <h2 id="extensions-type">Extensions <code>type</code></h2>
 <h5 id="namespace-7">Namespace</h5>
 <p>congestion.calculator.v2.Domain.ValueObjects</p>
-<h5 id="summary-16">Summary</h5>
+<h5 id="summary-17">Summary</h5>
 <p>A dummy try to add ToTime method to static Convert class that was impossible now
 even though it let other classes to convert strings to Time like:
 (null as DateTime).ToTime(&quot;12:24&quot;)</p>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-Between-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="betweenthisfromto-method">Between(this,from,to) <code>method</code></h3>
+<h5 id="summary-18">Summary</h5>
+<p>This utility method let to check a Time object is in range of two other Time objects (not equal to boundaries)</p>
+<h5 id="returns-9">Returns</h5>
+<p>a boolean value which is true if from&lt;This Time&lt;to</p>
+<h5 id="parameters-12">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The input string object</td>
+</tr>
+<tr>
+<td>from</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The start range of time</td>
+</tr>
+<tr>
+<td>to</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The end range of time</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualBothSides-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="betweenorequalbothsidesthisfromto-method">BetweenOrEqualBothSides(this,from,to) <code>method</code></h3>
+<h5 id="summary-19">Summary</h5>
+<p>This utility method let to check a Time object is in range of two other Time objects or equal to boundaries</p>
+<h5 id="returns-10">Returns</h5>
+<p>a boolean value which is true if from≤This Time≤to</p>
+<h5 id="parameters-13">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The input string object</td>
+</tr>
+<tr>
+<td>from</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The start range of time</td>
+</tr>
+<tr>
+<td>to</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The end range of time</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualLeftSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="betweenorequalleftsidethisfromto-method">BetweenOrEqualLeftSide(this,from,to) <code>method</code></h3>
+<h5 id="summary-20">Summary</h5>
+<p>This utility method let to check a Time object is in range of two other Time objects or just equal to left boundary</p>
+<h5 id="returns-11">Returns</h5>
+<p>a boolean value which is true if from&lt;This Time≤to</p>
+<h5 id="parameters-14">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The input string object</td>
+</tr>
+<tr>
+<td>from</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The start range of time</td>
+</tr>
+<tr>
+<td>to</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The end range of time</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualRightSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
+<h3 id="betweenorequalrightsidethisfromto-method">BetweenOrEqualRightSide(this,from,to) <code>method</code></h3>
+<h5 id="summary-21">Summary</h5>
+<p>This utility method let to check a Time object is in range of two other Time objects or just equal to left boundary</p>
+<h5 id="returns-12">Returns</h5>
+<p>a boolean value which is true if from≤This Time&lt;to</p>
+<h5 id="parameters-15">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The input string object</td>
+</tr>
+<tr>
+<td>from</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The start range of time</td>
+</tr>
+<tr>
+<td>to</td>
+<td><a href="#T-congestion-calculator-v2-Domain-ValueObjects-Time" title="congestion.calculator.v2.Domain.ValueObjects.Time">congestion.calculator.v2.Domain.ValueObjects.Time</a></td>
+<td>The end range of time</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-DateTime-'></a></p>
+<h3 id="totimethis-method">ToTime(this) <code>method</code></h3>
+<h5 id="summary-22">Summary</h5>
+<p>This method let to convert a DateTime object simply to a Time object with a method of DateTime objects</p>
+<h5 id="returns-13">Returns</h5>
+<p>The converted Time result from the input DateTime object</p>
+<h5 id="parameters-16">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The input DateTime object</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-String-'></a></p>
+<h3 id="totimethis-method-1">ToTime(this) <code>method</code></h3>
+<h5 id="summary-23">Summary</h5>
+<p>This method let to convert a string object simply to a Time object with a method of string objects</p>
+<h5 id="returns-14">Returns</h5>
+<p>The converted Time result from the input string object</p>
+<h5 id="parameters-17">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>this</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The input string object</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType'></a></p>
+<h2 id="holidaytype-type">HolidayType <code>type</code></h2>
+<h5 id="namespace-8">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService</p>
+<h5 id="summary-24">Summary</h5>
+<p>This enum can be used to select which kind of holiday for checking is selected.
+For combination of holidays, you can use it e.g., HolidayType.Public | HolidayType.CommonLocal</p>
 <p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy'></a></p>
 <h2 id="icongestiontaxcalculatorstrategy-type">ICongestionTaxCalculatorStrategy <code>type</code></h2>
-<h5 id="namespace-8">Namespace</h5>
+<h5 id="namespace-9">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.Interfaces</p>
-<h5 id="summary-17">Summary</h5>
+<h5 id="summary-25">Summary</h5>
 <p>This interface let we implement the strategy design pattern for different congestion tax calculators</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime[]-'></a></p>
 <h3 id="gettaxvehicledates-method-2">GetTax(vehicle,dates) <code>method</code></h3>
-<h5 id="summary-18">Summary</h5>
+<h5 id="summary-26">Summary</h5>
 <p>Every Congestion Tax Calculator should implement this method to calculate and return the tax for
 a vehicle in different days.
 This method calculate total tax for a vehicle in several days and overall rules for different days
 like 'The single charge rule' can be implemented in this part.</p>
-<h5 id="returns-9">Returns</h5>
+<h5 id="returns-15">Returns</h5>
 <p>the tax value between 0 to int.MaxValue</p>
-<h5 id="parameters-12">Parameters</h5>
+<h5 id="parameters-18">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -492,17 +722,17 @@ like 'The single charge rule' can be implemented in this part.</p>
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy'></a></p>
 <h2 id="idatetollfeestrategy-type">IDateTollFeeStrategy <code>type</code></h2>
-<h5 id="namespace-9">Namespace</h5>
+<h5 id="namespace-10">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.Interfaces</p>
-<h5 id="summary-19">Summary</h5>
+<h5 id="summary-27">Summary</h5>
 <p>This interface let the toll fee calculator to have different strategy for dates.</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-GetDateTollFee-System-DateTime-'></a></p>
 <h3 id="getdatetollfeedate-method-3">GetDateTollFee(date) <code>method</code></h3>
-<h5 id="summary-20">Summary</h5>
+<h5 id="summary-28">Summary</h5>
 <p>Every toll fee strategy should implement this method to return the toll fee of the received date.</p>
-<h5 id="returns-10">Returns</h5>
+<h5 id="returns-16">Returns</h5>
 <p>the toll fee value between 0 to int.MaxValue for the input date</p>
-<h5 id="parameters-13">Parameters</h5>
+<h5 id="parameters-19">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -519,19 +749,48 @@ like 'The single charge rule' can be implemented in this part.</p>
 </tr>
 </tbody>
 </table>
+<p><a name='T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository'></a></p>
+<h2 id="itaxrulerepository-type">ITaxRuleRepository <code>type</code></h2>
+<h5 id="namespace-11">Namespace</h5>
+<p>congestion.calculator.v2.Infrastructure.Repositories</p>
+<h5 id="summary-29">Summary</h5>
+<p>An interface for a repository that provides tax rules for a specific city.</p>
+<p><a name='M-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository-GetAllRules-System-String-'></a></p>
+<h3 id="getallrulescity-method-1">GetAllRules(city) <code>method</code></h3>
+<h5 id="summary-30">Summary</h5>
+<p>Retrieves a list of tax rules for the specified city.</p>
+<h5 id="returns-17">Returns</h5>
+<p>A list of tax rule DTOs for the specified city.</p>
+<h5 id="parameters-20">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>city</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.String" title="System.String">System.String</a></td>
+<td>The name of the city for which to retrieve tax rules.</td>
+</tr>
+</tbody>
+</table>
 <p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy'></a></p>
 <h2 id="itollfeecalculatorstrategy-type">ITollFeeCalculatorStrategy <code>type</code></h2>
-<h5 id="namespace-10">Namespace</h5>
+<h5 id="namespace-12">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.Interfaces</p>
-<h5 id="summary-21">Summary</h5>
+<h5 id="summary-31">Summary</h5>
 <p>This interface is used to implement strategy design pattern for toll fee calculation</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy-GetTollFee-congestion-calculator-IVehicle,System-DateTime-'></a></p>
 <h3 id="gettollfeevehicledate-method">GetTollFee(vehicle,date) <code>method</code></h3>
-<h5 id="summary-22">Summary</h5>
+<h5 id="summary-32">Summary</h5>
 <p>Every toll fee calculator should implement this method to return the toll fee based on their strategy</p>
-<h5 id="returns-11">Returns</h5>
+<h5 id="returns-18">Returns</h5>
 <p>the return value can be between 0 to int.MaxValue as the toll fee value</p>
-<h5 id="parameters-14">Parameters</h5>
+<h5 id="parameters-21">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -555,18 +814,18 @@ like 'The single charge rule' can be implemented in this part.</p>
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy'></a></p>
 <h2 id="ivehicletollfeestrategy-type">IVehicleTollFeeStrategy <code>type</code></h2>
-<h5 id="namespace-11">Namespace</h5>
+<h5 id="namespace-13">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.Interfaces</p>
-<h5 id="summary-23">Summary</h5>
+<h5 id="summary-33">Summary</h5>
 <p>In our current toll fee calculator, the vehicle can be free of toll.
 This interface is used to implement strategy design pattern for various vehicles toll fee calculation.</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
 <h3 id="isvehicletollfreevehicle-method">IsVehicleTollFree(vehicle) <code>method</code></h3>
-<h5 id="summary-24">Summary</h5>
+<h5 id="summary-34">Summary</h5>
 <p>Every toll fee strategy should implement this method to return that is the vehicle fee of toll or not?</p>
-<h5 id="returns-12">Returns</h5>
+<h5 id="returns-19">Returns</h5>
 <p>true if the vehicle is free of toll fee, otherwise false</p>
-<h5 id="parameters-15">Parameters</h5>
+<h5 id="parameters-22">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -585,21 +844,21 @@ This interface is used to implement strategy design pattern for various vehicles
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleV2'></a></p>
 <h2 id="ivehiclev2-type">IVehicleV2 <code>type</code></h2>
-<h5 id="namespace-12">Namespace</h5>
+<h5 id="namespace-14">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.Interfaces</p>
-<h5 id="summary-25">Summary</h5>
+<h5 id="summary-35">Summary</h5>
 <p>This interface let us</p>
 <p><a name='T-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository'></a></p>
 <h2 id="mdtaxrulerepository-type">MDTaxRuleRepository <code>type</code></h2>
-<h5 id="namespace-13">Namespace</h5>
+<h5 id="namespace-15">Namespace</h5>
 <p>congestion.calculator.v2.Infrastructure.Providers</p>
-<h5 id="summary-26">Summary</h5>
+<h5 id="summary-36">Summary</h5>
 <p>Represents a repository for retrieving tax rules from a file.</p>
 <p><a name='M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-#ctor-System-String-'></a></p>
 <h3 id="ctorfilepath-constructor-1">#ctor(filePath) <code>constructor</code></h3>
-<h5 id="summary-27">Summary</h5>
+<h5 id="summary-37">Summary</h5>
 <p>Initializes a new instance of the MDTaxRuleRepository class.</p>
-<h5 id="parameters-16">Parameters</h5>
+<h5 id="parameters-23">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -617,12 +876,12 @@ This interface is used to implement strategy design pattern for various vehicles
 </tbody>
 </table>
 <p><a name='M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-GetAllRules-System-String-'></a></p>
-<h3 id="getallrulescity-method-1">GetAllRules(city) <code>method</code></h3>
-<h5 id="summary-28">Summary</h5>
+<h3 id="getallrulescity-method-2">GetAllRules(city) <code>method</code></h3>
+<h5 id="summary-38">Summary</h5>
 <p>Retrieves all tax rules for a specified city.</p>
-<h5 id="returns-13">Returns</h5>
+<h5 id="returns-20">Returns</h5>
 <p>A list of TaxRuleDTO objects representing the tax rules for the specified city.</p>
-<h5 id="parameters-17">Parameters</h5>
+<h5 id="parameters-24">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -641,22 +900,326 @@ This interface is used to implement strategy design pattern for various vehicles
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-MainCongestionTaxCalculatorNew'></a></p>
 <h2 id="maincongestiontaxcalculatornew-type">MainCongestionTaxCalculatorNew <code>type</code></h2>
-<h5 id="namespace-14">Namespace</h5>
+<h5 id="namespace-16">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services</p>
-<h5 id="summary-29">Summary</h5>
+<h5 id="summary-39">Summary</h5>
 <p>This class uses Singleton design pattern to avoid user from instancing new dummy object for tax calculation.</p>
+<p><a name='T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService'></a></p>
+<h2 id="swedishholidayservice-type">SwedishHolidayService <code>type</code></h2>
+<h5 id="namespace-17">Namespace</h5>
+<p>congestion.calculator.v2.Application.Services.Utility</p>
+<h5 id="summary-40">Summary</h5>
+<p>A class for checking whether a date is a holiday in Sweden or not.
+`HolidayChecker`</p>
+<p><a name='F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishPublicHolidays'></a></p>
+<h3 id="swedishpublicholidays-constants">swedishPublicHolidays <code>constants</code></h3>
+<h5 id="summary-41">Summary</h5>
+<p>This field is for caching current year holidays and improving the runtime performance</p>
+<p><a name='F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishWeeklyHoliday'></a></p>
+<h3 id="swedishweeklyholiday-constants">swedishWeeklyHoliday <code>constants</code></h3>
+<h5 id="summary-42">Summary</h5>
+<p>Initializes static fields of <a href="#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService" title="congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService">SwedishHolidayService</a> class.</p>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAdventSunday-System-Int32,System-Int32-'></a></p>
+<h3 id="calculateadventsundayyearadventnumber-method">CalculateAdventSunday(year,adventNumber) <code>method</code></h3>
+<h5 id="summary-43">Summary</h5>
+<p>Calculates the date of the specified Advent Sunday in the Swedish calendar for the given year.</p>
+<h5 id="returns-21">Returns</h5>
+<p>The date of the specified Advent Sunday in the Swedish calendar for the given year.</p>
+<h5 id="parameters-25">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate the Advent Sunday.</td>
+</tr>
+<tr>
+<td>adventNumber</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The number of the Advent Sunday to calculate (1, 2, 3, or 4).</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAllSaintsEve-System-Int32-'></a></p>
+<h3 id="calculateallsaintseveyear-method">CalculateAllSaintsEve(year) <code>method</code></h3>
+<h5 id="summary-44">Summary</h5>
+<p>Calculates the date of All Saints' Eve (Alla helgons afton) in the Swedish calendar for the given year.</p>
+<h5 id="returns-22">Returns</h5>
+<p>The date of All Saints' Eve (Alla helgons afton) in the Swedish calendar for the given year.</p>
+<h5 id="parameters-26">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate All Saints' Eve.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateFathersDay-System-Int32-'></a></p>
+<h3 id="calculatefathersdayyear-method">CalculateFathersDay(year) <code>method</code></h3>
+<h5 id="summary-45">Summary</h5>
+<p>Calculates the date of Father's Day in the Swedish calendar for the given year.</p>
+<h5 id="returns-23">Returns</h5>
+<p>The date of Father's Day in the Swedish calendar for the given year.</p>
+<h5 id="parameters-27">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate Father's Day.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMidsummersEve-System-Int32-'></a></p>
+<h3 id="calculatemidsummerseveyear-method">CalculateMidsummersEve(year) <code>method</code></h3>
+<h5 id="summary-46">Summary</h5>
+<p>Calculates Midsummer's Eve in the Swedish calendar for a given year.</p>
+<h5 id="returns-24">Returns</h5>
+<p>The date of Midsummer's Eve in the Swedish calendar for the given year.</p>
+<h5 id="parameters-28">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate Midsummer's Eve.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMothersDay-System-Int32-'></a></p>
+<h3 id="calculatemothersdayyear-method">CalculateMothersDay(year) <code>method</code></h3>
+<h5 id="summary-47">Summary</h5>
+<p>Calculates the date of Mother's Day in the Swedish calendar for the given year.</p>
+<h5 id="returns-25">Returns</h5>
+<p>The date of Mother's Day in the Swedish calendar for the given year.</p>
+<h5 id="parameters-29">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate Mother's Day.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetEasterSunday-System-Int32-'></a></p>
+<h3 id="geteastersundayyear-method">GetEasterSunday(year) <code>method</code></h3>
+<h5 id="summary-48">Summary</h5>
+<p>Calculates the date of Easter Sunday for a given year using the Gregorian calendar.</p>
+<h5 id="returns-26">Returns</h5>
+<p>The date of Easter Sunday for the input year.</p>
+<h5 id="parameters-30">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to calculate Easter Sunday.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishCommonLocalHolidaysAndTitle-System-Int32-'></a></p>
+<h3 id="getswedishcommonlocalholidaysandtitleyear-method">GetSwedishCommonLocalHolidaysAndTitle(year) <code>method</code></h3>
+<h5 id="summary-49">Summary</h5>
+<p>Returns a dictionary of common local holidays in Sweden for the given year, including Twelfth Night, Holy Saturday, Walpurgis Night, Whit Saturday, Midsummer's Eve, All Saints' Eve, Christmas Eve, and New Year's Eve.</p>
+<h5 id="returns-27">Returns</h5>
+<p>A dictionary of common local holidays in Sweden for the given year, with the date as the key and the holiday name as the value.</p>
+<h5 id="parameters-31">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to get the common local holidays in Sweden.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishPublicHolidaysAndTitle-System-Int32-'></a></p>
+<h3 id="getswedishpublicholidaysandtitleyear-method">GetSwedishPublicHolidaysAndTitle(year) <code>method</code></h3>
+<h5 id="summary-50">Summary</h5>
+<p>Returns a dictionary of Swedish public holidays for the given year.</p>
+<h5 id="returns-28">Returns</h5>
+<p>A dictionary of Swedish public holidays for the given year.</p>
+<h5 id="parameters-32">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to get the Swedish public holidays.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishTypicalNonWorkingHolidaysAndTitle-System-Int32-'></a></p>
+<h3 id="getswedishtypicalnonworkingholidaysandtitleyear-method">GetSwedishTypicalNonWorkingHolidaysAndTitle(year) <code>method</code></h3>
+<h5 id="summary-51">Summary</h5>
+<p>Returns an array of typical non-working holidays in Sweden for the given year, including Valentine's Day, Mother's Day, Father's Day, and the four Advent Sundays.</p>
+<h5 id="returns-29">Returns</h5>
+<p>An array of typical non-working holidays in Sweden for the given year.</p>
+<h5 id="parameters-33">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Int32" title="System.Int32">System.Int32</a></td>
+<td>The year for which to get the typical non-working holidays in Sweden.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-IsHoliday-System-DateTime,congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType-'></a></p>
+<h3 id="isholidayinputdate-method">IsHoliday(inputDate) <code>method</code></h3>
+<h5 id="summary-52">Summary</h5>
+<p>Checks whether a date is a holiday in Sweden or not.</p>
+<h5 id="returns-30">Returns</h5>
+<p>True if the input date is a holiday in Sweden, false otherwise.</p>
+<h5 id="parameters-34">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inputDate</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.DateTime" title="System.DateTime">System.DateTime</a></td>
+<td>The date to check.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='T-congestion-calculator-v2-Domain-Models-TaxRuleDTO'></a></p>
+<h2 id="taxruledto-type">TaxRuleDTO <code>type</code></h2>
+<h5 id="namespace-18">Namespace</h5>
+<p>congestion.calculator.v2.Domain.Models</p>
+<h5 id="summary-53">Summary</h5>
+<p>A data transfer object that represents a tax rule for a specific city.</p>
+<p><a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-City'></a></p>
+<h3 id="city-property">City <code>property</code></h3>
+<h5 id="summary-54">Summary</h5>
+<p>The name of the city to which the tax rule applies.</p>
+<p><a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-EndTime'></a></p>
+<h3 id="endtime-property">EndTime <code>property</code></h3>
+<h5 id="summary-55">Summary</h5>
+<p>The ending time of day when the tax rule is in effect.</p>
+<p><a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Fee'></a></p>
+<h3 id="fee-property">Fee <code>property</code></h3>
+<h5 id="summary-56">Summary</h5>
+<p>The amount of tax (in a certain currency) that applies during the specified time period.</p>
+<p><a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-StarTime'></a></p>
+<h3 id="startime-property">StarTime <code>property</code></h3>
+<h5 id="summary-57">Summary</h5>
+<p>The starting time of day when the tax rule is in effect.
+The rule include the start time (must b equal)</p>
+<p><a name='M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Equals-System-Object-'></a></p>
+<h3 id="equalsobj-method">Equals(obj) <code>method</code></h3>
+<h5 id="summary-58">Summary</h5>
+<p>Determines whether the specified object is equal to the current tax rule object.</p>
+<h5 id="returns-31">Returns</h5>
+<p>True if the objects are equal; otherwise, false.</p>
+<h5 id="parameters-35">Parameters</h5>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>obj</td>
+<td><a href="http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k:System.Object" title="System.Object">System.Object</a></td>
+<td>The object to compare with the current object.</td>
+</tr>
+</tbody>
+</table>
+<p><a name='M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-ToString'></a></p>
+<h3 id="tostring-method">ToString() <code>method</code></h3>
+<h5 id="summary-59">Summary</h5>
+<p>Returns a string representation of the tax rule object.</p>
+<h5 id="returns-32">Returns</h5>
+<p>A string containing the city name, start and end times, and tax fee.</p>
+<h5 id="parameters-36">Parameters</h5>
+<p>This method has no parameters.</p>
 <p><a name='T-congestion-calculator-v2-Domain-ValueObjects-Time'></a></p>
 <h2 id="time-type">Time <code>type</code></h2>
-<h5 id="namespace-15">Namespace</h5>
+<h5 id="namespace-19">Namespace</h5>
 <p>congestion.calculator.v2.Domain.ValueObjects</p>
-<h5 id="summary-30">Summary</h5>
+<h5 id="summary-60">Summary</h5>
 <p>A class for representing a time of day.</p>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int64-'></a></p>
 <h3 id="ctorticks-constructor">#ctor(ticks) <code>constructor</code></h3>
-<h5 id="summary-31">Summary</h5>
+<h5 id="summary-61">Summary</h5>
 <p>Initializes a new instance of the Time class using a number of ticks without
 considering the date part (year, month, day).</p>
-<h5 id="parameters-18">Parameters</h5>
+<h5 id="parameters-37">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -675,9 +1238,9 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int32,System-Int32,System-Int32,System-Int32-'></a></p>
 <h3 id="ctorhourminutesecondmillisecond-constructor">#ctor(hour,minute,second,millisecond) <code>constructor</code></h3>
-<h5 id="summary-32">Summary</h5>
+<h5 id="summary-62">Summary</h5>
 <p>Initializes a new instance of the Time class using hours, minutes, seconds, and milliseconds.</p>
-<h5 id="parameters-19">Parameters</h5>
+<h5 id="parameters-38">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -711,9 +1274,9 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-DateTime-'></a></p>
 <h3 id="ctordt-constructor">#ctor(dt) <code>constructor</code></h3>
-<h5 id="summary-33">Summary</h5>
+<h5 id="summary-63">Summary</h5>
 <p>Initializes a new instance of the Time class using a DateTime object.</p>
-<h5 id="parameters-20">Parameters</h5>
+<h5 id="parameters-39">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -732,9 +1295,9 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-String-'></a></p>
 <h3 id="ctortimestring-constructor">#ctor(timeString) <code>constructor</code></h3>
-<h5 id="summary-34">Summary</h5>
+<h5 id="summary-64">Summary</h5>
 <p>Initializes a new instance of the Time class using a time string.</p>
-<h5 id="parameters-21">Parameters</h5>
+<h5 id="parameters-40">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -753,15 +1316,15 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='P-congestion-calculator-v2-Domain-ValueObjects-Time-AsDateTime'></a></p>
 <h3 id="asdatetime-property">AsDateTime <code>property</code></h3>
-<h5 id="summary-35">Summary</h5>
+<h5 id="summary-65">Summary</h5>
 <p>Gets or sets the time of day as a DateTime object.</p>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="comparetoother-method">CompareTo(other) <code>method</code></h3>
-<h5 id="summary-36">Summary</h5>
+<h5 id="summary-66">Summary</h5>
 <p>Compares the current Time object with another Time object.</p>
-<h5 id="returns-14">Returns</h5>
+<h5 id="returns-33">Returns</h5>
 <p>A value that indicates the relative order of the Time objects being compared.</p>
-<h5 id="parameters-22">Parameters</h5>
+<h5 id="parameters-41">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -780,11 +1343,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-CompareTo-System-DateTime-'></a></p>
 <h3 id="comparetoother-method-1">CompareTo(other) <code>method</code></h3>
-<h5 id="summary-37">Summary</h5>
+<h5 id="summary-67">Summary</h5>
 <p>Compares the current Time object with a DateTime object.</p>
-<h5 id="returns-15">Returns</h5>
+<h5 id="returns-34">Returns</h5>
 <p>A value that indicates the relative order of the Time and DateTime objects being compared.</p>
-<h5 id="parameters-23">Parameters</h5>
+<h5 id="parameters-42">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -802,12 +1365,12 @@ considering the date part (year, month, day).</p>
 </tbody>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-Equals-System-Object-'></a></p>
-<h3 id="equalsobj-method">Equals(obj) <code>method</code></h3>
-<h5 id="summary-38">Summary</h5>
+<h3 id="equalsobj-method-1">Equals(obj) <code>method</code></h3>
+<h5 id="summary-68">Summary</h5>
 <p>Determines whether the current Time object is equal to another object.</p>
-<h5 id="returns-16">Returns</h5>
+<h5 id="returns-35">Returns</h5>
 <p>true if the current Time object is equal to the other object; otherwise, false.</p>
-<h5 id="parameters-24">Parameters</h5>
+<h5 id="parameters-43">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -826,27 +1389,27 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-GetHashCode'></a></p>
 <h3 id="gethashcode-method">GetHashCode() <code>method</code></h3>
-<h5 id="summary-39">Summary</h5>
+<h5 id="summary-69">Summary</h5>
 <p>Returns a hash code for the current Time object.</p>
-<h5 id="returns-17">Returns</h5>
+<h5 id="returns-36">Returns</h5>
 <p>A hash code for the current Time object.</p>
-<h5 id="parameters-25">Parameters</h5>
+<h5 id="parameters-44">Parameters</h5>
 <p>This method has no parameters.</p>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-ToString'></a></p>
-<h3 id="tostring-method">ToString() <code>method</code></h3>
-<h5 id="summary-40">Summary</h5>
+<h3 id="tostring-method-1">ToString() <code>method</code></h3>
+<h5 id="summary-70">Summary</h5>
 <p>Returns a string that represents the current Time object in the format &quot;hh:mm:ss.fff&quot;.</p>
-<h5 id="returns-18">Returns</h5>
+<h5 id="returns-37">Returns</h5>
 <p>A string that represents the current Time object in the format &quot;hh:mm:ss.fff&quot;.</p>
-<h5 id="parameters-26">Parameters</h5>
+<h5 id="parameters-45">Parameters</h5>
 <p>This method has no parameters.</p>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_equalityleftright-method">op_Equality(left,right) <code>method</code></h3>
-<h5 id="summary-41">Summary</h5>
+<h5 id="summary-71">Summary</h5>
 <p>Determines whether two Time objects are equal.</p>
-<h5 id="returns-19">Returns</h5>
+<h5 id="returns-38">Returns</h5>
 <p>true if the two Time objects are equal; otherwise, false.</p>
-<h5 id="parameters-27">Parameters</h5>
+<h5 id="parameters-46">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -870,11 +1433,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Equality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_equalityleftright-method-1">op_Equality(left,right) <code>method</code></h3>
-<h5 id="summary-42">Summary</h5>
+<h5 id="summary-72">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-20">Returns</h5>
+<h5 id="returns-39">Returns</h5>
 <p>True if the two objects are equal, false otherwise.</p>
-<h5 id="parameters-28">Parameters</h5>
+<h5 id="parameters-47">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -898,11 +1461,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_greaterthanleftright-method">op_GreaterThan(left,right) <code>method</code></h3>
-<h5 id="summary-43">Summary</h5>
+<h5 id="summary-73">Summary</h5>
 <p>Determines whether one Time object is greater than another Time object.</p>
-<h5 id="returns-21">Returns</h5>
+<h5 id="returns-40">Returns</h5>
 <p>true if the first Time object is greater than the second Time object; otherwise, false.</p>
-<h5 id="parameters-29">Parameters</h5>
+<h5 id="parameters-48">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -926,11 +1489,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_greaterthanleftright-method-1">op_GreaterThan(left,right) <code>method</code></h3>
-<h5 id="summary-44">Summary</h5>
+<h5 id="summary-74">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-22">Returns</h5>
+<h5 id="returns-41">Returns</h5>
 <p>True if the left object is greater than the right object, false otherwise.</p>
-<h5 id="parameters-30">Parameters</h5>
+<h5 id="parameters-49">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -954,11 +1517,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_greaterthanorequalleftright-method">op_GreaterThanOrEqual(left,right) <code>method</code></h3>
-<h5 id="summary-45">Summary</h5>
+<h5 id="summary-75">Summary</h5>
 <p>Determines whether one Time object is greater than or equal to another Time object.</p>
-<h5 id="returns-23">Returns</h5>
+<h5 id="returns-42">Returns</h5>
 <p>true if the first Time object is greater than or equal to the second Time object; otherwise, false.</p>
-<h5 id="parameters-31">Parameters</h5>
+<h5 id="parameters-50">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -982,11 +1545,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_GreaterThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_greaterthanorequalleftright-method-1">op_GreaterThanOrEqual(left,right) <code>method</code></h3>
-<h5 id="summary-46">Summary</h5>
+<h5 id="summary-76">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-24">Returns</h5>
+<h5 id="returns-43">Returns</h5>
 <p>True if the left object is greater than or equal to the right object, false otherwise.</p>
-<h5 id="parameters-32">Parameters</h5>
+<h5 id="parameters-51">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1010,11 +1573,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_inequalityleftright-method">op_Inequality(left,right) <code>method</code></h3>
-<h5 id="summary-47">Summary</h5>
+<h5 id="summary-77">Summary</h5>
 <p>Determines whether two Time objects are not equal.</p>
-<h5 id="returns-25">Returns</h5>
+<h5 id="returns-44">Returns</h5>
 <p>true if the two Time objects are not equal; otherwise, false.</p>
-<h5 id="parameters-33">Parameters</h5>
+<h5 id="parameters-52">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1038,11 +1601,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_Inequality-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_inequalityleftright-method-1">op_Inequality(left,right) <code>method</code></h3>
-<h5 id="summary-48">Summary</h5>
+<h5 id="summary-78">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-26">Returns</h5>
+<h5 id="returns-45">Returns</h5>
 <p>True if the two objects are not equal, false otherwise.</p>
-<h5 id="parameters-34">Parameters</h5>
+<h5 id="parameters-53">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1066,11 +1629,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_lessthanleftright-method">op_LessThan(left,right) <code>method</code></h3>
-<h5 id="summary-49">Summary</h5>
+<h5 id="summary-79">Summary</h5>
 <p>Determines whether one Time object is less than another Time object.</p>
-<h5 id="returns-27">Returns</h5>
+<h5 id="returns-46">Returns</h5>
 <p>true if the first Time object is less than the second Time object; otherwise, false.</p>
-<h5 id="parameters-35">Parameters</h5>
+<h5 id="parameters-54">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1094,11 +1657,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThan-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_lessthanleftright-method-1">op_LessThan(left,right) <code>method</code></h3>
-<h5 id="summary-50">Summary</h5>
+<h5 id="summary-80">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-28">Returns</h5>
+<h5 id="returns-47">Returns</h5>
 <p>True if the left object is less than the right object, false otherwise.</p>
-<h5 id="parameters-36">Parameters</h5>
+<h5 id="parameters-55">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1122,11 +1685,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a></p>
 <h3 id="op_lessthanorequalleftright-method">op_LessThanOrEqual(left,right) <code>method</code></h3>
-<h5 id="summary-51">Summary</h5>
+<h5 id="summary-81">Summary</h5>
 <p>Determines whether one Time object is less than or equal to another Time object.</p>
-<h5 id="returns-29">Returns</h5>
+<h5 id="returns-48">Returns</h5>
 <p>true if the first Time object is less than or equal to the second Time object; otherwise, false.</p>
-<h5 id="parameters-37">Parameters</h5>
+<h5 id="parameters-56">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1150,11 +1713,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Domain-ValueObjects-Time-op_LessThanOrEqual-congestion-calculator-v2-Domain-ValueObjects-Time,System-DateTime-'></a></p>
 <h3 id="op_lessthanorequalleftright-method-1">op_LessThanOrEqual(left,right) <code>method</code></h3>
-<h5 id="summary-52">Summary</h5>
+<h5 id="summary-82">Summary</h5>
 <p>This operator is used to compare a Time object with a DateTime object.</p>
-<h5 id="returns-30">Returns</h5>
+<h5 id="returns-49">Returns</h5>
 <p>True if the left object is less than or equal to the right object, false otherwise.</p>
-<h5 id="parameters-38">Parameters</h5>
+<h5 id="parameters-57">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1178,15 +1741,15 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-TollFeeStrategyV1'></a></p>
 <h2 id="tollfeestrategyv1-type">TollFeeStrategyV1 <code>type</code></h2>
-<h5 id="namespace-16">Namespace</h5>
+<h5 id="namespace-20">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services</p>
-<h5 id="summary-53">Summary</h5>
+<h5 id="summary-83">Summary</h5>
 <p>This is our first and current strategy for toll fee calculation of every vehicle in every date.</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-#ctor-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy,congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-'></a></p>
 <h3 id="ctorvehicletollfeestrategydatetollfeestrategy-constructor">#ctor(VehicleTollFeeStrategy,DateTollFeeStrategy) <code>constructor</code></h3>
-<h5 id="summary-54">Summary</h5>
+<h5 id="summary-84">Summary</h5>
 <p>Here we use dependency injection strategy to get the toll fee calculation strategy for vehicles and dates</p>
-<h5 id="parameters-39">Parameters</h5>
+<h5 id="parameters-58">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1210,11 +1773,11 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='M-congestion-calculator-v2-Application-Services-TollFeeStrategyV1-GetTollFee-congestion-calculator-IVehicle,System-DateTime-'></a></p>
 <h3 id="gettollfeevehicledate-method-1">GetTollFee(vehicle,date) <code>method</code></h3>
-<h5 id="summary-55">Summary</h5>
+<h5 id="summary-85">Summary</h5>
 <p>This method calculate the toll fee value for the given vehicle and date.</p>
-<h5 id="returns-31">Returns</h5>
+<h5 id="returns-50">Returns</h5>
 <p>the calculated toll fee value for the input vehicle and date between 0 to int.MaxValue</p>
-<h5 id="parameters-40">Parameters</h5>
+<h5 id="parameters-59">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1238,31 +1801,31 @@ considering the date part (year, month, day).</p>
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-TollFreeVehicles'></a></p>
 <h2 id="tollfreevehicles-type">TollFreeVehicles <code>type</code></h2>
-<h5 id="namespace-17">Namespace</h5>
+<h5 id="namespace-21">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV1</p>
-<h5 id="summary-56">Summary</h5>
+<h5 id="summary-86">Summary</h5>
 <p>This enum contains the names of current toll free vehicles based on this strategy
 Convention: All names should be in Capital case</p>
 <p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-TollFreeVehicles'></a></p>
 <h2 id="tollfreevehicles-type-1">TollFreeVehicles <code>type</code></h2>
-<h5 id="namespace-18">Namespace</h5>
+<h5 id="namespace-22">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services.VehicleTollFeeStrategyV2</p>
-<h5 id="summary-57">Summary</h5>
+<h5 id="summary-87">Summary</h5>
 <p>This enum contains the names of current toll free vehicles based on this strategy
 Convention: All names should be in Capital case</p>
 <p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1'></a></p>
 <h2 id="vehicletollfeestrategyv1-type">VehicleTollFeeStrategyV1 <code>type</code></h2>
-<h5 id="namespace-19">Namespace</h5>
+<h5 id="namespace-23">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services</p>
-<h5 id="summary-58">Summary</h5>
+<h5 id="summary-88">Summary</h5>
 <p>The current vehicle toll fee calculation strategy is implemented in this class</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV1-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
 <h3 id="isvehicletollfreevehicle-method-1">IsVehicleTollFree(vehicle) <code>method</code></h3>
-<h5 id="summary-59">Summary</h5>
+<h5 id="summary-89">Summary</h5>
 <p>This method check a vehicle to be toll free or not.</p>
-<h5 id="returns-32">Returns</h5>
+<h5 id="returns-51">Returns</h5>
 <p>true if the input vehicle is free of toll fee, otherwise false</p>
-<h5 id="parameters-41">Parameters</h5>
+<h5 id="parameters-60">Parameters</h5>
 <table>
 <thead>
 <tr>
@@ -1281,18 +1844,18 @@ Convention: All names should be in Capital case</p>
 </table>
 <p><a name='T-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2'></a></p>
 <h2 id="vehicletollfeestrategyv2-type">VehicleTollFeeStrategyV2 <code>type</code></h2>
-<h5 id="namespace-20">Namespace</h5>
+<h5 id="namespace-24">Namespace</h5>
 <p>congestion.calculator.v2.Application.Services</p>
-<h5 id="summary-60">Summary</h5>
+<h5 id="summary-90">Summary</h5>
 <p>The current vehicle toll fee calculation strategy is implemented in this class
 TODO: Code Review 29: This code is built after applying CR12, CR26, CR27, Please remove this line</p>
 <p><a name='M-congestion-calculator-v2-Application-Services-VehicleTollFeeStrategyV2-IsVehicleTollFree-congestion-calculator-IVehicle-'></a></p>
 <h3 id="isvehicletollfreevehicle-method-2">IsVehicleTollFree(vehicle) <code>method</code></h3>
-<h5 id="summary-61">Summary</h5>
+<h5 id="summary-91">Summary</h5>
 <p>This method check a vehicle to be toll free or not.</p>
-<h5 id="returns-33">Returns</h5>
+<h5 id="returns-52">Returns</h5>
 <p>true if the input vehicle is free of toll fee, otherwise false</p>
-<h5 id="parameters-42">Parameters</h5>
+<h5 id="parameters-61">Parameters</h5>
 <table>
 <thead>
 <tr>

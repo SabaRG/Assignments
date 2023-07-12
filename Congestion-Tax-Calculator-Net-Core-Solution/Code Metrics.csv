@@ -1,9 +1,9 @@
 ﻿Scope,Project,Namespace,Type,Member,Maintainability Index,Cyclomatic Complexity,Depth of Inheritance,Class Coupling,Lines of Source code,Lines of Executable code
-Assembly,Congestion-Tax-Calculator-Net-Core (Debug), , , ,82,344,3,63,1679,240
-Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator, , ,90,77,1,6,388,41
+Assembly,Congestion-Tax-Calculator-Net-Core (Debug), , , ,82,351,3,61,1670,242
+Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator, , ,90,77,1,5,385,41
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,Car, ,100,1,1,1,12,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,Car,GetVehicleType() : string,100,1,,0,9,1
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,CongestionTaxCalculator, ,57,73,1,6,315,37
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,CongestionTaxCalculator, ,57,73,1,5,312,37
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,CongestionTaxCalculator,"GetTax(IVehicle, DateTime[]) : int",57,6,,3,34,14
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,CongestionTaxCalculator,IsTollFreeVehicle(IVehicle) : bool,72,7,,2,14,3
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,CongestionTaxCalculator,"GetTollFee(DateTime, IVehicle) : int",52,32,,2,28,12
@@ -19,29 +19,29 @@ Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,IVehicle, 
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,IVehicle,GetVehicleType() : string,100,1,,0,11,0
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,Motorbike, ,100,1,1,1,26,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator,Motorbike,GetVehicleType() : string,100,1,,0,15,1
-Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services, , ,73,189,1,37,683,111
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1, ,65,7,1,7,153,15
+Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services, , ,73,193,1,35,696,112
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1, ,65,7,1,5,160,15
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1,tollFeeCalculator : ITollFeeCalculatorStrategy,100,0,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1,CongestionTaxCalculatorV1(ITollFeeCalculatorStrategy),96,1,,1,4,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1,"GetTax(IVehicle, DateTime[]) : int",57,6,,4,136,14
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2, ,61,8,1,11,68,18
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV1,"GetTax(IVehicle, DateTime[]) : int",57,6,,4,147,14
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2, ,61,8,1,11,71,18
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2,tollFeeCalculator : ITollFeeCalculatorStrategy,100,0,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2,CongestionTaxCalculatorV2(ITollFeeCalculatorStrategy),96,1,,1,4,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2,"GetTax(IVehicle, DateTime[]) : int",52,7,,10,54,17
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1, ,54,64,1,7,77,19
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1,GetDateTollFee(DateTime) : int,49,37,,3,33,14
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1,IsTollFreeDate(DateTime) : bool,61,27,,2,35,5
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV2, ,55,60,1,3,75,18
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV2,GetDateTollFee(DateTime) : int,51,33,,1,31,13
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,CongestionTaxCalculatorV2,"GetTax(IVehicle, DateTime[]) : int",52,7,,10,57,17
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1, ,54,64,1,5,79,19
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1,GetDateTollFee(DateTime) : int,49,37,,3,34,14
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV1,IsTollFreeDate(DateTime) : bool,61,27,,2,38,5
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV2, ,54,64,1,5,75,19
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV2,GetDateTollFee(DateTime) : int,49,37,,3,31,14
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV2,IsTollFreeDate(DateTime) : bool,61,27,,2,37,5
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3, ,72,35,1,13,72,13
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3, ,72,35,1,13,73,13
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,_taxRuleRepository : ITaxRuleRepository,100,0,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,City : string,100,2,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,City.get() : string,100,1,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,City.set(string) : void,100,1,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,"DateTollFeeStrategyV3(ITaxRuleRepository, string)",85,1,,1,10,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,GetDateTollFee(DateTime) : int,69,4,,10,15,5
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,IsTollFreeDate(DateTime) : bool,59,28,,4,38,6
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,DateTollFeeStrategyV3,IsTollFreeDate(DateTime) : bool,59,28,,4,39,6
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,MainCongestionTaxCalculatorNew, ,81,6,1,17,83,14
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,MainCongestionTaxCalculatorNew,ctcv1 : ICongestionTaxCalculatorStrategy,85,0,,8,5,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,MainCongestionTaxCalculatorNew,"GetTaxV1Base(IVehicle, DateTime[]) : int",92,1,,3,4,1
@@ -60,11 +60,11 @@ Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Appli
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,TollFeeStrategyV1,dateTollFeeStrategy : IDateTollFeeStrategy,100,0,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,TollFeeStrategyV1,"TollFeeStrategyV1(IVehicleTollFeeStrategy, IDateTollFeeStrategy)",85,1,,2,10,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,TollFeeStrategyV1,"GetTollFee(IVehicle, DateTime) : int",82,2,,4,11,2
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1, ,73,2,1,10,64,4
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1, ,74,2,1,8,64,4
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1,IsVehicleTollFree(IVehicle) : bool,74,2,,7,25,4
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles, ,93,1,1,0,30,2
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles, ,93,1,1,0,32,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Motorcycle : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,1,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Tractor : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,5,1
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Tractor : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,6,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Emergency : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,1,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Diplomat : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,1,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV1.TollFreeVehicles,Foreign : VehicleTollFeeStrategyV1.TollFreeVehicles,93,0,,0,1,1
@@ -78,7 +78,7 @@ Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Appli
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV2.TollFreeVehicles,Motorcycle : VehicleTollFeeStrategyV2.TollFreeVehicles,100,0,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV2.TollFreeVehicles,Military : VehicleTollFeeStrategyV2.TollFreeVehicles,100,0,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services,VehicleTollFeeStrategyV2.TollFreeVehicles,Foreign : VehicleTollFeeStrategyV2.TollFreeVehicles,100,0,,0,1,0
-Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces, , ,99,5,0,3,102,1
+Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces, , ,99,5,0,3,99,1
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,ICongestionTaxCalculatorStrategy, ,100,1,0,2,18,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,ICongestionTaxCalculatorStrategy,"GetTax(IVehicle, DateTime[]) : int",100,1,,2,12,0
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IDateTollFeeStrategy, ,100,1,0,1,14,0
@@ -87,8 +87,8 @@ Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Applica
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,ITollFeeCalculatorStrategy,"GetTollFee(IVehicle, DateTime) : int",100,1,,2,9,0
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleTollFeeStrategy, ,100,1,0,1,17,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleTollFeeStrategy,IsVehicleTollFree(IVehicle) : bool,100,1,,1,6,0
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleV2, ,95,1,0,1,17,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleV2,GetVehicleType() : string,95,1,,1,5,1
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleV2, ,95,1,0,1,14,1
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Application.Services.Interfaces,IVehicleV2,GetVehicleType() : string,95,1,,1,4,1
 Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models, , ,88,16,1,3,27,6
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models,TaxRuleDTO, ,88,16,1,3,24,6
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models,TaxRuleDTO,City : string,100,2,,0,1,0
@@ -105,20 +105,20 @@ Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domai
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models,TaxRuleDTO,Fee.set(int) : void,100,1,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models,TaxRuleDTO,ToString() : string,91,1,,1,1,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.Models,TaxRuleDTO,Equals(object) : bool,67,7,,3,14,5
-Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects, , ,87,45,1,16,333,48
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Extensions, ,92,2,1,4,19,2
+Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects, , ,87,48,1,16,319,49
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Extensions, ,92,2,1,3,18,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Extensions,"ToTime(this Time, string) : Time",96,1,,1,4,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Extensions,"ToTime<T>(this T, string) : T",93,1,,2,5,1
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time, ,80,40,1,9,299,45
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time, ,79,43,1,9,288,46
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,_time : DateTime,100,0,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,Time(long),79,1,,1,10,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,"Time(int, int, int, int)",67,1,,1,11,5
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,Time(DateTime),96,1,,1,6,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,TryParse(string) : DateTime,77,2,,6,11,3
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,Time(string),96,1,,1,8,0
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,AsDateTime : DateTime,93,2,,2,27,2
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,AsDateTime : DateTime,81,8,,3,26,8
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,AsDateTime.get() : DateTime,100,1,,1,1,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,AsDateTime.set(DateTime) : void,87,1,,2,20,1
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,AsDateTime.set(DateTime) : void,63,7,,3,19,7
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,CompareTo(Time) : int,82,2,,1,11,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,Equals(object) : bool,73,4,,2,15,4
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,GetHashCode() : int,95,1,,1,8,1
@@ -134,21 +134,21 @@ Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domai
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,"op_LessThanOrEqual(Time, DateTime) : bool",81,2,,1,12,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,"op_GreaterThan(Time, DateTime) : bool",94,1,,1,10,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,"op_GreaterThanOrEqual(Time, DateTime) : bool",94,1,,1,10,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,ToString() : string,67,4,,1,18,6
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,ToString() : string,93,1,,1,8,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Time,CompareTo(DateTime) : int,91,1,,1,9,1
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>, ,91,3,1,7,10,1
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>, ,91,3,1,6,9,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>,Utility(),89,1,,6,4,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>,"ToTime : Func<string, T>",100,2,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>,"ToTime.get() : Func<string, T>",100,1,,1,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Domain.ValueObjects,Utility<T>,"ToTime.set(Func<string, T>) : void",100,1,,1,1,0
-Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers, , ,73,11,3,27,139,33
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository, ,71,4,1,14,74,8
+Namespace,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers, , ,73,11,3,26,137,33
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository, ,71,4,1,14,72,8
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository,_filePath : string,100,0,,0,1,0
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository,CSVTaxRuleRepository(string),96,1,,0,8,1
-Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository,GetAllRules(string) : List<TaxRuleDTO>,64,3,,13,30,7
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TaxRuleMap, ,65,1,3,7,11,8
+Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository,GetAllRules(string) : List<TaxRuleDTO>,64,3,,13,31,7
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TaxRuleMap, ,65,1,3,6,10,8
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TaxRuleMap,TaxRuleMap(),65,1,,6,7,8
-Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TimeConverter, ,94,2,1,6,14,2
+Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TimeConverter, ,94,2,1,5,12,2
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TimeConverter,"ConvertFromString(string, IReaderRow, MemberMapData) : object",96,1,,3,4,1
 Member,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,CSVTaxRuleRepository.TimeConverter,"ConvertToString(object, IWriterRow, MemberMapData) : string",96,1,,2,4,1
 Type,Congestion-Tax-Calculator-Net-Core (Debug),congestion.calculator.v2.Infrastructure.Providers,MDTaxRuleRepository, ,64,4,1,10,59,15

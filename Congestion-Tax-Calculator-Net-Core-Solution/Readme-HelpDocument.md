@@ -23,10 +23,19 @@
   - [GetDateTollFee(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-GetDateTollFee-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.GetDateTollFee(System.DateTime)')
   - [IsTollFreeDate(date)](#M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-IsTollFreeDate-System-DateTime- 'congestion.calculator.v2.Application.Services.DateTollFeeStrategyV3.IsTollFreeDate(System.DateTime)')
 - [Extensions](#T-congestion-calculator-v2-Domain-ValueObjects-Extensions 'congestion.calculator.v2.Domain.ValueObjects.Extensions')
+  - [Between(this,from,to)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-Between-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.Between(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)')
+  - [BetweenOrEqualBothSides(this,from,to)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualBothSides-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualBothSides(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)')
+  - [BetweenOrEqualLeftSide(this,from,to)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualLeftSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualLeftSide(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)')
+  - [BetweenOrEqualRightSide(this,from,to)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualRightSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.BetweenOrEqualRightSide(congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time,congestion.calculator.v2.Domain.ValueObjects.Time)')
+  - [ToTime(this)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-DateTime- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.ToTime(System.DateTime)')
+  - [ToTime(this)](#M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-String- 'congestion.calculator.v2.Domain.ValueObjects.Extensions.ToTime(System.String)')
+- [HolidayType](#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.HolidayType')
 - [ICongestionTaxCalculatorStrategy](#T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy 'congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy')
   - [GetTax(vehicle,dates)](#M-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy-GetTax-congestion-calculator-IVehicle,System-DateTime[]- 'congestion.calculator.v2.Application.Services.Interfaces.ICongestionTaxCalculatorStrategy.GetTax(congestion.calculator.IVehicle,System.DateTime[])')
 - [IDateTollFeeStrategy](#T-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy 'congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy')
   - [GetDateTollFee(date)](#M-congestion-calculator-v2-Application-Services-Interfaces-IDateTollFeeStrategy-GetDateTollFee-System-DateTime- 'congestion.calculator.v2.Application.Services.Interfaces.IDateTollFeeStrategy.GetDateTollFee(System.DateTime)')
+- [ITaxRuleRepository](#T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository 'congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository')
+  - [GetAllRules(city)](#M-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository-GetAllRules-System-String- 'congestion.calculator.v2.Infrastructure.Repositories.ITaxRuleRepository.GetAllRules(System.String)')
 - [ITollFeeCalculatorStrategy](#T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy 'congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy')
   - [GetTollFee(vehicle,date)](#M-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy-GetTollFee-congestion-calculator-IVehicle,System-DateTime- 'congestion.calculator.v2.Application.Services.Interfaces.ITollFeeCalculatorStrategy.GetTollFee(congestion.calculator.IVehicle,System.DateTime)')
 - [IVehicleTollFeeStrategy](#T-congestion-calculator-v2-Application-Services-Interfaces-IVehicleTollFeeStrategy 'congestion.calculator.v2.Application.Services.Interfaces.IVehicleTollFeeStrategy')
@@ -36,6 +45,26 @@
   - [#ctor(filePath)](#M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-#ctor-System-String- 'congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.#ctor(System.String)')
   - [GetAllRules(city)](#M-congestion-calculator-v2-Infrastructure-Providers-MDTaxRuleRepository-GetAllRules-System-String- 'congestion.calculator.v2.Infrastructure.Providers.MDTaxRuleRepository.GetAllRules(System.String)')
 - [MainCongestionTaxCalculatorNew](#T-congestion-calculator-v2-Application-Services-MainCongestionTaxCalculatorNew 'congestion.calculator.v2.Application.Services.MainCongestionTaxCalculatorNew')
+- [SwedishHolidayService](#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService')
+  - [swedishPublicHolidays](#F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishPublicHolidays 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.swedishPublicHolidays')
+  - [swedishWeeklyHoliday](#F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishWeeklyHoliday 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.swedishWeeklyHoliday')
+  - [CalculateAdventSunday(year,adventNumber)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAdventSunday-System-Int32,System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateAdventSunday(System.Int32,System.Int32)')
+  - [CalculateAllSaintsEve(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAllSaintsEve-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateAllSaintsEve(System.Int32)')
+  - [CalculateFathersDay(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateFathersDay-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateFathersDay(System.Int32)')
+  - [CalculateMidsummersEve(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMidsummersEve-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateMidsummersEve(System.Int32)')
+  - [CalculateMothersDay(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMothersDay-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.CalculateMothersDay(System.Int32)')
+  - [GetEasterSunday(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetEasterSunday-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetEasterSunday(System.Int32)')
+  - [GetSwedishCommonLocalHolidaysAndTitle(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishCommonLocalHolidaysAndTitle-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishCommonLocalHolidaysAndTitle(System.Int32)')
+  - [GetSwedishPublicHolidaysAndTitle(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishPublicHolidaysAndTitle-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishPublicHolidaysAndTitle(System.Int32)')
+  - [GetSwedishTypicalNonWorkingHolidaysAndTitle(year)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishTypicalNonWorkingHolidaysAndTitle-System-Int32- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.GetSwedishTypicalNonWorkingHolidaysAndTitle(System.Int32)')
+  - [IsHoliday(inputDate)](#M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-IsHoliday-System-DateTime,congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType- 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.IsHoliday(System.DateTime,congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService.HolidayType)')
+- [TaxRuleDTO](#T-congestion-calculator-v2-Domain-Models-TaxRuleDTO 'congestion.calculator.v2.Domain.Models.TaxRuleDTO')
+  - [City](#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-City 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.City')
+  - [EndTime](#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-EndTime 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.EndTime')
+  - [Fee](#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Fee 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.Fee')
+  - [StarTime](#P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-StarTime 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.StarTime')
+  - [Equals(obj)](#M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Equals-System-Object- 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.Equals(System.Object)')
+  - [ToString()](#M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-ToString 'congestion.calculator.v2.Domain.Models.TaxRuleDTO.ToString')
 - [Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time')
   - [#ctor(ticks)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int64- 'congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int64)')
   - [#ctor(hour,minute,second,millisecond)](#M-congestion-calculator-v2-Domain-ValueObjects-Time-#ctor-System-Int32,System-Int32,System-Int32,System-Int32- 'congestion.calculator.v2.Domain.ValueObjects.Time.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)')
@@ -295,6 +324,12 @@ true if the given date is toll free, otherwise false
 
 congestion.calculator.v2.Application.Services
 
+##### Summary
+
+The new date toll fee calculation strategy is implemented in this class
+which its rule is not fixed and hard coded and it gets the rules from a repository,
+besides the holiday calculation is not hard coded too which cause less CC (Cyclomatic complexity).
+
 <a name='M-congestion-calculator-v2-Application-Services-DateTollFeeStrategyV3-#ctor-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository,System-String-'></a>
 ### #ctor(taxRuleRepository,city) `constructor`
 
@@ -358,6 +393,128 @@ A dummy try to add ToTime method to static Convert class that was impossible now
 even though it let other classes to convert strings to Time like:
 (null as DateTime).ToTime("12:24")
 
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-Between-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a>
+### Between(this,from,to) `method`
+
+##### Summary
+
+This utility method let to check a Time object is in range of two other Time objects (not equal to boundaries)
+
+##### Returns
+
+a boolean value which is true if from<This Time<to
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The input string object |
+| from | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The start range of time |
+| to | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The end range of time |
+
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualBothSides-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a>
+### BetweenOrEqualBothSides(this,from,to) `method`
+
+##### Summary
+
+This utility method let to check a Time object is in range of two other Time objects or equal to boundaries
+
+##### Returns
+
+a boolean value which is true if from≤This Time≤to
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The input string object |
+| from | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The start range of time |
+| to | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The end range of time |
+
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualLeftSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a>
+### BetweenOrEqualLeftSide(this,from,to) `method`
+
+##### Summary
+
+This utility method let to check a Time object is in range of two other Time objects or just equal to left boundary
+
+##### Returns
+
+a boolean value which is true if from<This Time≤to
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The input string object |
+| from | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The start range of time |
+| to | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The end range of time |
+
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-BetweenOrEqualRightSide-congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time,congestion-calculator-v2-Domain-ValueObjects-Time-'></a>
+### BetweenOrEqualRightSide(this,from,to) `method`
+
+##### Summary
+
+This utility method let to check a Time object is in range of two other Time objects or just equal to left boundary
+
+##### Returns
+
+a boolean value which is true if from≤This Time<to
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The input string object |
+| from | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The start range of time |
+| to | [congestion.calculator.v2.Domain.ValueObjects.Time](#T-congestion-calculator-v2-Domain-ValueObjects-Time 'congestion.calculator.v2.Domain.ValueObjects.Time') | The end range of time |
+
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-DateTime-'></a>
+### ToTime(this) `method`
+
+##### Summary
+
+This method let to convert a DateTime object simply to a Time object with a method of DateTime objects
+
+##### Returns
+
+The converted Time result from the input DateTime object
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The input DateTime object |
+
+<a name='M-congestion-calculator-v2-Domain-ValueObjects-Extensions-ToTime-System-String-'></a>
+### ToTime(this) `method`
+
+##### Summary
+
+This method let to convert a string object simply to a Time object with a method of string objects
+
+##### Returns
+
+The converted Time result from the input string object
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| this | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The input string object |
+
+<a name='T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType'></a>
+## HolidayType `type`
+
+##### Namespace
+
+congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService
+
+##### Summary
+
+This enum can be used to select which kind of holiday for checking is selected.
+For combination of holidays, you can use it e.g., HolidayType.Public | HolidayType.CommonLocal
+
 <a name='T-congestion-calculator-v2-Application-Services-Interfaces-ICongestionTaxCalculatorStrategy'></a>
 ## ICongestionTaxCalculatorStrategy `type`
 
@@ -417,6 +574,34 @@ the toll fee value between 0 to int.MaxValue for the input date
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | date | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | the input date to be checked for toll fee calculation |
+
+<a name='T-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository'></a>
+## ITaxRuleRepository `type`
+
+##### Namespace
+
+congestion.calculator.v2.Infrastructure.Repositories
+
+##### Summary
+
+An interface for a repository that provides tax rules for a specific city.
+
+<a name='M-congestion-calculator-v2-Infrastructure-Repositories-ITaxRuleRepository-GetAllRules-System-String-'></a>
+### GetAllRules(city) `method`
+
+##### Summary
+
+Retrieves a list of tax rules for the specified city.
+
+##### Returns
+
+A list of tax rule DTOs for the specified city.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| city | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the city for which to retrieve tax rules. |
 
 <a name='T-congestion-calculator-v2-Application-Services-Interfaces-ITollFeeCalculatorStrategy'></a>
 ## ITollFeeCalculatorStrategy `type`
@@ -538,6 +723,275 @@ congestion.calculator.v2.Application.Services
 ##### Summary
 
 This class uses Singleton design pattern to avoid user from instancing new dummy object for tax calculation.
+
+<a name='T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService'></a>
+## SwedishHolidayService `type`
+
+##### Namespace
+
+congestion.calculator.v2.Application.Services.Utility
+
+##### Summary
+
+A class for checking whether a date is a holiday in Sweden or not.
+\`HolidayChecker\`
+
+<a name='F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishPublicHolidays'></a>
+### swedishPublicHolidays `constants`
+
+##### Summary
+
+This field is for caching current year holidays and improving the runtime performance
+
+<a name='F-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-swedishWeeklyHoliday'></a>
+### swedishWeeklyHoliday `constants`
+
+##### Summary
+
+Initializes static fields of [SwedishHolidayService](#T-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService 'congestion.calculator.v2.Application.Services.Utility.SwedishHolidayService') class.
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAdventSunday-System-Int32,System-Int32-'></a>
+### CalculateAdventSunday(year,adventNumber) `method`
+
+##### Summary
+
+Calculates the date of the specified Advent Sunday in the Swedish calendar for the given year.
+
+##### Returns
+
+The date of the specified Advent Sunday in the Swedish calendar for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate the Advent Sunday. |
+| adventNumber | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The number of the Advent Sunday to calculate (1, 2, 3, or 4). |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateAllSaintsEve-System-Int32-'></a>
+### CalculateAllSaintsEve(year) `method`
+
+##### Summary
+
+Calculates the date of All Saints' Eve (Alla helgons afton) in the Swedish calendar for the given year.
+
+##### Returns
+
+The date of All Saints' Eve (Alla helgons afton) in the Swedish calendar for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate All Saints' Eve. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateFathersDay-System-Int32-'></a>
+### CalculateFathersDay(year) `method`
+
+##### Summary
+
+Calculates the date of Father's Day in the Swedish calendar for the given year.
+
+##### Returns
+
+The date of Father's Day in the Swedish calendar for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate Father's Day. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMidsummersEve-System-Int32-'></a>
+### CalculateMidsummersEve(year) `method`
+
+##### Summary
+
+Calculates Midsummer's Eve in the Swedish calendar for a given year.
+
+##### Returns
+
+The date of Midsummer's Eve in the Swedish calendar for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate Midsummer's Eve. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-CalculateMothersDay-System-Int32-'></a>
+### CalculateMothersDay(year) `method`
+
+##### Summary
+
+Calculates the date of Mother's Day in the Swedish calendar for the given year.
+
+##### Returns
+
+The date of Mother's Day in the Swedish calendar for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate Mother's Day. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetEasterSunday-System-Int32-'></a>
+### GetEasterSunday(year) `method`
+
+##### Summary
+
+Calculates the date of Easter Sunday for a given year using the Gregorian calendar.
+
+##### Returns
+
+The date of Easter Sunday for the input year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to calculate Easter Sunday. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishCommonLocalHolidaysAndTitle-System-Int32-'></a>
+### GetSwedishCommonLocalHolidaysAndTitle(year) `method`
+
+##### Summary
+
+Returns a dictionary of common local holidays in Sweden for the given year, including Twelfth Night, Holy Saturday, Walpurgis Night, Whit Saturday, Midsummer's Eve, All Saints' Eve, Christmas Eve, and New Year's Eve.
+
+##### Returns
+
+A dictionary of common local holidays in Sweden for the given year, with the date as the key and the holiday name as the value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to get the common local holidays in Sweden. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishPublicHolidaysAndTitle-System-Int32-'></a>
+### GetSwedishPublicHolidaysAndTitle(year) `method`
+
+##### Summary
+
+Returns a dictionary of Swedish public holidays for the given year.
+
+##### Returns
+
+A dictionary of Swedish public holidays for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to get the Swedish public holidays. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-GetSwedishTypicalNonWorkingHolidaysAndTitle-System-Int32-'></a>
+### GetSwedishTypicalNonWorkingHolidaysAndTitle(year) `method`
+
+##### Summary
+
+Returns an array of typical non-working holidays in Sweden for the given year, including Valentine's Day, Mother's Day, Father's Day, and the four Advent Sundays.
+
+##### Returns
+
+An array of typical non-working holidays in Sweden for the given year.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year for which to get the typical non-working holidays in Sweden. |
+
+<a name='M-congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-IsHoliday-System-DateTime,congestion-calculator-v2-Application-Services-Utility-SwedishHolidayService-HolidayType-'></a>
+### IsHoliday(inputDate) `method`
+
+##### Summary
+
+Checks whether a date is a holiday in Sweden or not.
+
+##### Returns
+
+True if the input date is a holiday in Sweden, false otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| inputDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The date to check. |
+
+<a name='T-congestion-calculator-v2-Domain-Models-TaxRuleDTO'></a>
+## TaxRuleDTO `type`
+
+##### Namespace
+
+congestion.calculator.v2.Domain.Models
+
+##### Summary
+
+A data transfer object that represents a tax rule for a specific city.
+
+<a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-City'></a>
+### City `property`
+
+##### Summary
+
+The name of the city to which the tax rule applies.
+
+<a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-EndTime'></a>
+### EndTime `property`
+
+##### Summary
+
+The ending time of day when the tax rule is in effect.
+
+<a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Fee'></a>
+### Fee `property`
+
+##### Summary
+
+The amount of tax (in a certain currency) that applies during the specified time period.
+
+<a name='P-congestion-calculator-v2-Domain-Models-TaxRuleDTO-StarTime'></a>
+### StarTime `property`
+
+##### Summary
+
+The starting time of day when the tax rule is in effect.
+The rule include the start time (must b equal)
+
+<a name='M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-Equals-System-Object-'></a>
+### Equals(obj) `method`
+
+##### Summary
+
+Determines whether the specified object is equal to the current tax rule object.
+
+##### Returns
+
+True if the objects are equal; otherwise, false.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to compare with the current object. |
+
+<a name='M-congestion-calculator-v2-Domain-Models-TaxRuleDTO-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns a string representation of the tax rule object.
+
+##### Returns
+
+A string containing the city name, start and end times, and tax fee.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-congestion-calculator-v2-Domain-ValueObjects-Time'></a>
 ## Time `type`
