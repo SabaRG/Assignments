@@ -28,7 +28,7 @@ Besides, a code map of the implemented project is shown here for better collabor
 9. I usually use the SonarLint plug-in to avoid code smell, and I usually check all of its hint in my code and do review as much as I can and be reasonable for me.
 10. I add another Bonus scenario to check the holidays automatically for every year. My main objective was to improve the code quality and avoid high CC in legacy code, also, improve the flexibility and interoperability of code for all years.
 
-# 2. Usage
+# 2. Latest Code
 Latest version can be download from this address:
 [Latest code](./Congestion-Tax-Calculator-Net-Core-Solution-V20230712-121212Teh.zip)
 
