@@ -17,19 +17,19 @@ Besides, a code map of the implemented project is shown here for better collabor
 ![Code Map](./CodeMap.png "Code Map")
 5. I save code metrics as an image and CSV files to can be used without V.S. IDE and everybody can check the quality of the codes, but I think the codes can be improved more to have better metrics.
 ![Code Metrics](./Code%20Metrics.png "Code Metrics")
-[Code Metrics in CSV format](./Code%20Metrics.csv) & [Code Metrics in XLSX format](./Code%20Metrics.xlsx)
-6. I build many unit and integration tests for many important classes but they need more review. Besides I use all famous test frameworks including MSTest, NUnit and xUnit for a class -called `VehicleTollFeeStrategyV2Tests`-, but I just have time to make more test for xUnit project. The result of code coverage and bugs can be seen in `Code Coverage` image file. I will try to improve the code, correct the bugs and send new version as soon as I can.
+Code Metrics: [CSV format](./Code%20Metrics.csv) & [Excel format (XLSX)](./Code%20Metrics.xlsx)
+6. I build many unit and integration tests for many important classes but they need to more review. Besides I use all famous test frameworks including MSTest, NUnit and xUnit for a class -called `VehicleTollFeeStrategyV2Tests`-, but I just have time to make more test for xUnit project. The result of code coverage and bugs can be seen in `Code Coverage` image file. I will try to improve the code, correct the bugs and send new version as soon as I can.
 ![Test Results](./Test%20Results.png "Test Results")
 ![Code Coverage](./Code%20Coverage.png "Code Coverage")
 ![Code Coverage2](./Code%20Coverage2.png "Code Coverage2")
 7. I implement Bonus scenario and check it using unit and integration tests. There are two example input file for CSV and MD files (like the specification format) to test this scenario in the main folder -`netcore`- and the tests use these files, too.
-[Input CSV Template File for Tax Rules](./Rules-Template.csv) & [Input MD Template File for Tax Rules](./Rules-Template.md)
+Input Template File for Tax Rules: [CSV format](./Rules-Template.csv) & [MD format](./Rules-Template.md)
 8. Maybe it is better to have different projects for presentation, application and other layers but as my junior college doesn't make any structure for the project and my manager doesn't say how, where, why, what, are the requirements, I put all files (even sample input files) in the same project.
-9. I usually use the SonarLint plug-in to avoid code smell, and I usually check all of its hint in my code and do review as much as I can and be reasonable for me.
-10. I add another Bonus scenario to check the holidays automatically for every year. My main objective was to improve the code quality and avoid high CC in legacy code, also, improve the flexibility and interoperability of code for all years.
+9. I usually use the SonarLint plug-in to avoid the code smell, and I usually check all of its hint in my code and do review as much as I can and be reasonable for me.
+10. I add another Bonus scenario to check the holidays automatically for every year. My main objective was to improve the code quality and avoid high CC in legacy code, also, I improve the flexibility and interoperability of code for all year values.
 
 # 2. Latest Code
-Latest version can be download from this address:
+The last version of the project can be downloaded from this address:
 [Latest code](./Congestion-Tax-Calculator-Net-Core-Solution-V20230712-121212Teh.zip)
 
 # 3. Usage
@@ -39,14 +39,14 @@ To use the `MainCongestionTaxCalculatorNew` -the new version of `CongestionTaxCa
 ```csharp
 var vehicle = new Car();
 var dates = new DateTime[] { DateTime.Parse("2023-07-06 06:00:00"), DateTime.Parse("2023-07-06 07:30:00") };
-int tax = MainCongestionTaxCalculatorNew.GetTaxV1Base(vehicle, dates);
+int tax = MainCongestionTaxCalculatorNew.GetTaxV1Base(vehicle, dates); // deprecated version with many bugs!
 int tax = MainCongestionTaxCalculatorNew.GetTaxV2(vehicle, dates); // this version is built after doing code reviews
 int tax = MainCongestionTaxCalculatorNew.GetTaxV3GothenburgFromCSVFile(vehicle, dates); // this version is an improved version of V2 after adding Bonus Scenario
 int tax = MainCongestionTaxCalculatorNew.GetTaxV3GothenburgFromMDFile(vehicle, dates); // this version is an improved version of V2 after adding Bonus Scenario
 
 ```
 
-In the above example, we create a new Car instance and an array of dates. We then call the GetTax method of the CongestionTaxCalculator static class, passing in the vehicle and dates parameters. The method returns the total tax for those dates, which we store in the tax variable.
+In the above example, we create a new Car instance and an array of dates. We then call the GetTax method of the `MainCongestionTaxCalculatorNew` static class, passing in the `vehicle` and `dates` parameters. The method returns the total tax for those dates, which we store in the `tax` variable.
 
 # 4. License
 This code is licensed under the MIT license. See the LICENSE file for more information.
