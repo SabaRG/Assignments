@@ -12,16 +12,28 @@ Please consider the following hints:
 [Help Document in MD format](./Readme-HelpDocument.md) & [Help Document in HTML format](./Readme-HelpDocument.html)
 3. I was careful to use the spell checker in my VS2022 to avoid misspells but there may be some grammatical errors in my document that I have to find a plug-in for this purpose too (like Ginger or Grammarly that can be used in Windows and Word).
 4. Unfortunately, there is no class designer for .net core project built-in VS2022, so we can use other tools like SparxEA to visualize the structures and designs for sharing. I made a new version of the project for .NetFramework and link (not copy), the current source to make a class diagram, too.
+
 ![Class Diagram](./Congestion-Tax-Calculator-ClassDiagram.png "Class Diagram")
+
 Besides, a code map of the implemented project is shown here for better collaboration understanding and static code analysis like checking fan-in and fan-out of methods and classes:
+
 ![Code Map](./CodeMap.png "Code Map")
+
 5. I save code metrics as an image and CSV files to can be used without V.S. IDE and everybody can check the quality of the codes, but I think the codes can be improved more to have better metrics.
+
 ![Code Metrics](./Code%20Metrics.png "Code Metrics")
-Code Metrics: [CSV format](./Code%20Metrics.csv) & [Excel format (XLSX)](./Code%20Metrics.xlsx)
+
+Code Metrics: 
+
+[CSV format](./Code%20Metrics.csv) & [Excel format (XLSX)](./Code%20Metrics.xlsx)
 6. I build many unit and integration tests for many important classes but they need to more review. Besides I use all famous test frameworks including MSTest, NUnit and xUnit for a class -called `VehicleTollFeeStrategyV2Tests`-, but I just have time to make more test for xUnit project. The result of code coverage and bugs can be seen in `Code Coverage` image file. I will try to improve the code, correct the bugs and send new version as soon as I can.
+
 ![Test Results](./Test%20Results.png "Test Results")
+
 ![Code Coverage](./Code%20Coverage.png "Code Coverage")
+
 ![Code Coverage2](./Code%20Coverage2.png "Code Coverage2")
+
 7. I implement Bonus scenario and check it using unit and integration tests. There are two example input file for CSV and MD files (like the specification format) to test this scenario in the main folder -`netcore`- and the tests use these files, too.
 Input Template File for Tax Rules: [CSV format](./Rules-Template.csv) & [MD format](./Rules-Template.md)
 8. Maybe it is better to have different projects for presentation, application and other layers but as my junior college doesn't make any structure for the project and my manager doesn't say how, where, why, what, are the requirements, I put all files (even sample input files) in the same project.
